@@ -4,10 +4,26 @@
   <meta charset="utf-8">
   <title>CvWebAngular</title>
   <base href="C:/Program Files/Git/cv-web-angular/">
+  <script>
+    // SPA GitHub Pages redirect handler
+    (function () {
+      var l = window.location;
+      if (l.search && l.search.startsWith('?p=')) {
+        try {
+          var params = new URLSearchParams(l.search.substring(1));
+          var path = params.get('p') || '/';
+          var newUrl = l.origin + '/cv-web-angular' + decodeURIComponent(path) + l.hash;
+          window.history.replaceState(null, '', newUrl);
+        } catch (e) {
+          // ignore
+        }
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="stylesheet" href="styles-5INURTSO.css"></head>
 <body>
   <app-root></app-root>
-<script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-KW6TKR4C.js" type="module"></script></body>
+<script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-KGTBE2V4.js" type="module"></script></body>
 </html>
