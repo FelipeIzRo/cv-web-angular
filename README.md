@@ -1,59 +1,80 @@
-# CvWebAngular
+# CV Web en Angular 19
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.1.
+Aplicación de currículum vitae online desarrollada con Angular 19. El sitio se hospeda en GitHub Pages y los datos (por ejemplo, la ficha personal) se almacenan en Firebase (Firestore) usando `@angular/fire`.
 
-## Development server
+- URL pública (GitHub Pages): `https://felipeizro.github.io/cv-web-angular/`
 
-To start a local development server, run:
+## Presentación
 
-```bash
-ng serve
-```
+Este CV web muestra información personal y de contacto consultada en tiempo real desde Firestore. La página principal (ruta `home`) consume un servicio centralizado que lee un documento de la colección de datos personales y renderiza su contenido.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologías
 
-## Code scaffolding
+- Angular 19 (componentes standalone, ruteo)
+- Firebase: Firestore (datos), Auth (opcional), Analytics (opcional) vía `@angular/fire`
+- GitHub Pages para hosting estático del build de producción
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Arquitectura rápida
 
-```bash
-ng generate component component-name
-```
+- Bootstrap y proveedores en `src/main.ts:1` (Firestore/Auth/Analytics con `@angular/fire`).
+- Servicio de datos en `src/app/services/fire-base-service/fire-base.service.ts:1` que expone `getPersonalData()` como `Observable` desde Firestore.
+- En la vista principal, `src/app/components/home/home.component.ts:1` inyecta el servicio y se suscribe a los datos personales.
+- Configuración de Firebase en `src/environments/environment.ts:1` y `src/environments/environment.prod.ts:1` mediante `firebaseConfig`.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Configuración de Firebase
 
-```bash
-ng generate --help
-```
+1. Crea un proyecto en Firebase y habilita Firestore.
+2. Copia las credenciales web en:
+   - `src/environments/environment.ts:1`
+   - `src/environments/environment.prod.ts:1`
+3. Estructura de ejemplo en Firestore (colección y documento):
+   - Colección: `DATOS_PERSONALES`
+   - Documento: `<ID_DOC>` con campos como `name`, `lastname`, `age`, `phone_number`.
 
-## Building
+Nota: Ajusta las reglas de seguridad de Firestore para tu caso de uso (lectura pública vs. autenticada). Si vas a permitir escritura desde la app, configura Auth y reglas apropiadas.
 
-To build the project run:
+## Desarrollo local
 
-```bash
-ng build
-```
+Requisitos: Node 18+, Angular CLI 19.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Instalar dependencias: `npm install`
+- Servidor de desarrollo: `npm start` o `ng serve`
+- Abrir en: `http://localhost:4200/`
 
-## Running unit tests
+## Build de producción
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Generar build: `npm run build`
+- Salida en: `dist/cv-web-angular` (según `angular.json`)
 
-```bash
-ng test
-```
+## Despliegue en GitHub Pages
 
-## Running end-to-end tests
+Despliegue directo con `ng deploy` (angular-cli-ghpages):
 
-For end-to-end (e2e) testing, run:
+Prerequisito (ya configurado en este repo): `angular.json` incluye `architect.deploy.builder: "angular-cli-ghpages:deploy"`. Si no lo tuvieras, ejecuta: `ng add angular-cli-ghpages`.
 
-```bash
-ng e2e
-```
+Comando que funciona en este proyecto:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- `ng deploy --base-href=https://felipeizro.github.io/cv-web-angular/`
 
-## Additional Resources
+Este comando:
+- Genera el build de producción con el `baseHref` correcto (`/cv-web-angular/`).
+- Publica automáticamente el contenido a la rama `gh-pages` y configura GitHub Pages.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Notas:
+- Si es tu primera vez, habilita GitHub Pages en el repo (Settings → Pages) apuntando a la rama `gh-pages` y carpeta raíz.
+- Para un repo de usuario/organización (por ejemplo `felipeizro/felipeizro.github.io`), el `--base-href` debe ser `/`.
+- Si Git no tiene configurado usuario/email global, añade `--name "Tu Nombre" --email "tu@email"`.
+
+## Documentación adicional
+
+- Configuración alternativa con NgModules: `documentacion/configuracion_ngModules.md:1`
+
+## Scripts útiles
+
+- `npm start`: servidor de desarrollo
+- `npm run build`: build de producción
+- `npm test`: pruebas unitarias con Karma
+
+---
+
+Sugerencias y mejoras son bienvenidas. Si necesitas ayuda para adaptar el contenido del CV (secciones, estilos o datos), abre un issue o crea un PR.
