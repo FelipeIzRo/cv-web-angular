@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+// app.component.ts
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { Auth, signInAnonymously } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'cv-web-angular';
-}
+export class AppComponent {}
