@@ -33,14 +33,6 @@ a {
     background: #585247;
 }
 
-a div {
-    height: 100%;
-    background-size: cover;
-    opacity: .5;
-    transition: opacity .5s;
-    border-radius: inherit;
-}
-
 a:nth-child(1) {
     border-radius: 40vmin 0 0 0;
     transform-origin: 110% 110%;
