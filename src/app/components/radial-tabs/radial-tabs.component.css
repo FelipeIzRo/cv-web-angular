@@ -5,8 +5,8 @@
 
 .wrap {
 
-    --size-with: 80vmin;
-    --size-height: 80vmin;
+    --size-with: 240vmin;
+    --size-height: 240vmin;
 
     position: absolute;
     left: 50%;
@@ -76,8 +76,8 @@ a:nth-child(5) {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 30vmin;
-    height: 30vmin;
+    width: 80vmin;
+    height: 80vmin;
     border-radius: 50%;
     background-image: url('/assets/FotoPerfil.png');
     background-size: cover;
@@ -92,7 +92,7 @@ a:nth-child(5) {
 }
 
 .wrap:hover {
-    transform: translate(-50%, -50%) scale(.8);
+    transform: translate(-50%, -50%) scale(.4);
     opacity: 1;
 }
 
