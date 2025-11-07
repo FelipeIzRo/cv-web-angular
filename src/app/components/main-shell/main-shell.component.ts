@@ -1,14 +1,13 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
-
+import { CommonModule, NgClass, NgIf } from '@angular/common';
 @Component({
-  selector: 'app-radial-tabs',
+  selector: 'app-main-shell',
+  standalone: true,
   imports: [CommonModule],
-  templateUrl: './radial-tabs.component.html',
-  styleUrl: './radial-tabs.component.css'
+  templateUrl: './main-shell.component.html',
+  styleUrls: ['./main-shell.component.css']
 })
-export class RadialTabsComponent {
+export class MainShellComponent {
   activeTab: 'about' | 'skills' | 'projects' | 'contact' | null = null;
 
   openTab(tab: 'about' | 'skills' | 'projects' | 'contact') {

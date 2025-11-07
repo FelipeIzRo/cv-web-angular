@@ -1,10 +1,28 @@
-<div>
-  <div class="wrap">
-    <a href="#"><div></div></a>
-    <a href="#"><div></div></a>
-    <a href="#"><div></div></a>
-    <a href="#"><div></div></a>
-    <a href="#"><div></div></a>
+<div class="grid">
+  <div class="wrap" [ngClass]="{ 
+    'is-open-about': activeTab === 'about', 
+    'is-open-skills': activeTab === 'skills',
+    'is-open-projects': activeTab === 'projects',
+    'is-open-contact': activeTab === 'contact'
+    }">
+
+    <!-- Ariba izquierda  -->
+    <a (click)="openTab('about')">
+      <div></div>
+    </a>
+
+    <!-- Ariba derecha  -->
+    <a (click)="openTab('skills')">
+      <div></div>
+    </a>
+
+    <!-- Abajo izquierda  -->
+    <a><div></div></a>
+    <a><div></div></a>
+
+    <!-- Ariba derecha -->
+    <a><div></div></a>
+
     <span class="avatar"></span>
   </div>
 </div>

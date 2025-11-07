@@ -1,0 +1,71 @@
+<div class="grid" [ngClass]="{ 'has-active': activeTab }">
+
+  <!-- Bloque circular inicial -->
+  <div class="wrap" [ngClass]="{
+    'is-open': !!activeTab,
+    'tab-about': activeTab === 'about',
+    'tab-skills': activeTab === 'skills',
+    'tab-projects': activeTab === 'projects',
+    'tab-contact': activeTab === 'contact'
+  }">
+
+    <!-- Tabs -->
+    <a class="item item-1" (click)="openTab('about')">
+      <div class="label">Sobre mí</div>
+    </a>
+
+    <a class="item item-2" (click)="openTab('skills')">
+      <div class="label">Skills</div>
+    </a>
+
+    <a class="item item-3" (click)="openTab('projects')">
+      <div class="label">Proyectos</div>
+    </a>
+
+    <a class="item item-4" (click)="openTab('contact')">
+      <div class="label">Contacto</div>
+    </a>
+
+    <!-- Círculo central decorativo -->
+    <a class="item item-center"></a>
+
+    <!-- Avatar -->
+    <span class="avatar" [ngClass]="{ 'avatar-side': !!activeTab }"></span>
+  </div>
+
+  <!-- Panel de contenido tipo “clip” -->
+  <div class="content-panel" *ngIf="activeTab">
+    <button class="close-btn" (click)="closeTab()">✕</button>
+
+    <ng-container [ngSwitch]="activeTab">
+      <div *ngSwitchCase="'about'">
+        <h2>Sobre mí</h2>
+        <p>
+          Aquí vas a poner tu presentación: quién eres, qué haces,
+          en qué tecnologías trabajas, qué te define.
+        </p>
+      </div>
+
+      <div *ngSwitchCase="'skills'">
+        <h2>Skills</h2>
+        <ul>
+          <li>Angular · TypeScript</li>
+          <li>Java · Spring / Jakarta</li>
+          <li>REST · WebSockets</li>
+          <li>Docker · Linux · etc.</li>
+        </ul>
+      </div>
+
+      <div *ngSwitchCase="'projects'">
+        <h2>Proyectos</h2>
+        <p>Aquí listamos tus proyectos con links, descripción corta y stack.</p>
+      </div>
+
+      <div *ngSwitchCase="'contact'">
+        <h2>Contacto</h2>
+        <p>Email, LinkedIn, GitHub, ubicación, etc.</p>
+      </div>
+    </ng-container>
+  </div>
+
+</div>

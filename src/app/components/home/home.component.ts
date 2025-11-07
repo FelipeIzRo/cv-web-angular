@@ -3,10 +3,11 @@ import { FireBaseService, PersonalData } from '../../services/fire-base-service/
 import { Observable, Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { RadialTabsComponent } from "../radial-tabs/radial-tabs.component";
+import { MainShellComponent } from "../main-shell/main-shell.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RadialTabsComponent],
+  imports: [CommonModule, RadialTabsComponent, MainShellComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
