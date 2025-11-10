@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { LeftPanelComponent } from '../left-panel/left-panel.component';
+import { RightPanelComponent } from "../right-panel/right-panel.component";
 
 
 @Component({
   selector: 'app-radial-tabs',
-  imports: [CommonModule],
+  imports: [CommonModule, LeftPanelComponent, RightPanelComponent],
   templateUrl: './radial-tabs.component.html',
   styleUrl: './radial-tabs.component.css'
 })

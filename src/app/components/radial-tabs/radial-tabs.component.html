@@ -49,4 +49,16 @@
 
     <span class="avatar"></span>
   </div>
+
+  <app-left-panel
+  [visible]="activeTab === 'about'|| activeTab ==='projects'"
+  (close)="closeTab()">
+  </app-left-panel>
+
+  <app-right-panel
+  [visible]="activeTab === 'studies'|| activeTab ==='contact'"
+  (close)="closeTab()"
+  >
+  </app-right-panel>
+
 </div>
