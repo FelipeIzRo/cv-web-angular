@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class RadialTabsComponent {
   activeTab: 'about' | 'studies' | 'projects' | 'contact' | null = null;
+  focusedTab: 'about' | 'studies' | 'projects' | 'contact' | null = null;
 
   openTab(tab: 'about' | 'studies' | 'projects' | 'contact') {
     this.activeTab = tab;
@@ -17,5 +18,10 @@ export class RadialTabsComponent {
 
   closeTab() {
     this.activeTab = null;
+  }
+
+  focusTab(tab: 'about' | 'studies' | 'projects' | 'contact' | null){
+    console.log('focus: ' , tab)
+    this.focusedTab = tab;
   }
 }
