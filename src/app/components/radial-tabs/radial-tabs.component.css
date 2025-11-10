@@ -87,7 +87,16 @@ a:nth-child(5) {
     transform: scale(1);
 }
 
-
+.top-span{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.down-span{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+}
 .wrap>.avatar {
     position: absolute;
     left: 50%;
@@ -95,10 +104,12 @@ a:nth-child(5) {
     width: 80vmin;
     height: 80vmin;
     border-radius: 50%;
-    background-image: url('/assets/FotoPerfil.png');
+
+    /* ! Esto seria para poner la imagen */
+    /* background-image: url('/assets/FotoPerfil.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 
     transform-origin: center center;
     transform: translate(-50%, -50%) scale(1);
@@ -122,8 +133,11 @@ a:hover div {
 }
 
 span {
-    all: unset;
+  color: black;
+  font-size: 30vmin;
+  margin: 20vmin 0 20vmin 0;
 }
+
 
 .wrap.is-open-about {
     left: 80%;
@@ -141,7 +155,7 @@ span {
     transform: translate(-50%, -50%) scale(0.2);
 }
 .wrap.is-open-contact {
-    left: 80%;
+    left: 20%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0.2);
 }

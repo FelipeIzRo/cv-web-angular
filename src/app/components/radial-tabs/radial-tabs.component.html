@@ -7,21 +7,33 @@
     }">
 
     <!-- Ariba izquierda  -->
-    <a (click)="openTab('about')">
+    <a class="top-span" (click)="openTab('about')">
       <div></div>
+      <span>About</span>
     </a>
 
     <!-- Ariba derecha  -->
-    <a (click)="openTab('skills')">
+    <a class="top-span" (click)="openTab('skills')">
       <div></div>
+      <span>Skills</span>
     </a>
 
     <!-- Abajo izquierda  -->
-    <a><div></div></a>
-    <a><div></div></a>
+    <a class="down-span" (click)="openTab('projects')">
+      <div></div>
+      <span>Projects</span>
+    </a>
 
     <!-- Ariba derecha -->
-    <a><div></div></a>
+    <a class="down-span" (click)="openTab('contact')">
+      <div></div>
+      <span>Contact</span>
+    </a>
+
+    <!-- Etiqueta central -->
+    <a>
+      <div></div>
+    </a>
 
     <span class="avatar"></span>
   </div>
