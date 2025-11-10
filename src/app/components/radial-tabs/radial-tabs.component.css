@@ -1,0 +1,204 @@
+.grid {
+    position: fixed;
+    inset: 0;
+
+    /* aquí el sombreado de la página */
+    background: #E3DFD2;
+    box-shadow: inset 0 0 20vmin 0 #585247;
+
+    /* opcional pero recomendable para centrar tu círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.wrap {
+
+    --size-with: 240vmin;
+    --size-height: 240vmin;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--size-with);
+    height: var(--size-height);
+
+    background: transparent;
+    transform-origin: center center;
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 1;
+    /* transition: transform .5s, opacity .5s; */
+    z-index: 1;
+
+    transition: transform .9s ease,
+        opacity 1s ease,
+        left 1s ease,
+        top 1s ease;
+}
+
+a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 47.5%;
+    height: 47.5%;
+    overflow: hidden;
+    transform: scale(.5) translateZ(0);
+    background: #585247;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ! Fondo circular difuminado */
+a span {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+a span::before {
+    content: "";
+    position: absolute;
+    inset: 50%;
+    width: 250vmin;
+    height: 165vmin;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgb(3 3 3 / var(--halo-opacity)), rgb(3 3 3 / var(--halo-opacity-scnd)), rgb(0 0 0 / 0%));
+    filter: blur(10px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+a:nth-child(1) {
+    border-radius: 40vmin 0 0 0;
+    transform-origin: 110% 110%;
+    transition: transform .4s .15s;
+    background-image: url('/assets/SobreMi.jpg');
+}
+
+a:nth-child(2) {
+    border-radius: 0 40vmin 0 0;
+    left: 52.5%;
+    transform-origin: -10% 110%;
+    transition: transform .4s .2s;
+    background-image: url('/assets/Estudios.jpg');
+}
+
+a:nth-child(3) {
+    border-radius: 0 0 0 40vmin;
+    top: 52.5%;
+    transform-origin: 110% -10%;
+    transition: transform .4s .25s;
+    background-image: url('/assets/Experiencia.jpg');
+}
+
+a:nth-child(4) {
+    border-radius: 0 0 40vmin 0;
+    top: 52.5%;
+    left: 52.5%;
+    transform-origin: -10% -10%;
+    transition: transform .4s .3s;
+    background-image: url('/assets/Contacto.jpg');
+}
+
+a:nth-child(5) {
+    width: 55%;
+    height: 55%;
+    left: 22.5%;
+    top: 22.5%;
+    border-radius: 50vmin;
+    box-shadow: 0 0 0 5vmin #E3DFD2;
+    transform: scale(1);
+}
+
+.top-span {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    --halo-opacity: 0.65;
+    --halo-opacity-scnd: 0.10;
+}
+
+.down-span {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    --halo-opacity: 0.65;
+    --halo-opacity-scnd: 0.10;
+}
+
+.wrap>.avatar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80vmin;
+    height: 80vmin;
+    border-radius: 50%;
+
+    /* ! Esto seria para poner la imagen */
+    /* background-image: url('/assets/FotoPerfil.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+
+    transform-origin: center center;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform .5s;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.wrap:hover {
+    transform: translate(-50%, -50%) scale(.4);
+    opacity: 1;
+}
+
+.wrap:hover a {
+    transform: scale(1) translateZ(0);
+}
+
+a:hover div {
+    opacity: 1;
+    transform: translateZ(0);
+}
+
+span {
+    color: white;
+    -webkit-text-stroke: 5px black;
+    font-size: 30vmin;
+    margin: 20vmin 0 20vmin 0;
+}
+
+
+.wrap.is-open-about {
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.2);
+}
+
+.wrap.is-open-studies {
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.2);
+}
+
+.wrap.is-open-projects {
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.2);
+}
+
+.wrap.is-open-contact {
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.2);
+}
