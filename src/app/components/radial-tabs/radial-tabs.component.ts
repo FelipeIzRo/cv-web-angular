@@ -9,9 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './radial-tabs.component.css'
 })
 export class RadialTabsComponent {
-  activeTab: 'about' | 'skills' | 'projects' | 'contact' | null = null;
+  activeTab: 'about' | 'studies' | 'projects' | 'contact' | null = null;
 
-  openTab(tab: 'about' | 'skills' | 'projects' | 'contact') {
+  openTab(tab: 'about' | 'studies' | 'projects' | 'contact') {
     this.activeTab = tab;
   }
 

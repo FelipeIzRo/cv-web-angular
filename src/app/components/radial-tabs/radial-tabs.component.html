@@ -1,7 +1,7 @@
 <div class="grid">
   <div class="wrap" [ngClass]="{ 
     'is-open-about': activeTab === 'about', 
-    'is-open-skills': activeTab === 'skills',
+    'is-open-studies': activeTab === 'studies',
     'is-open-projects': activeTab === 'projects',
     'is-open-contact': activeTab === 'contact'
     }">
@@ -13,9 +13,9 @@
     </a>
 
     <!-- Ariba derecha  -->
-    <a class="top-span" (click)="openTab('skills')">
+    <a class="top-span" (click)="openTab('studies')">
       <div></div>
-      <span>Skills</span>
+      <span>Studies</span>
     </a>
 
     <!-- Abajo izquierda  -->

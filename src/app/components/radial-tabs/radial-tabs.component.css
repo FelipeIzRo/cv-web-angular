@@ -47,12 +47,16 @@ a {
     overflow: hidden;
     transform: scale(.5) translateZ(0);
     background: #585247;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 a:nth-child(1) {
     border-radius: 40vmin 0 0 0;
     transform-origin: 110% 110%;
     transition: transform .4s .15s;
+    background-image: url('/assets/SobreMi.jpg');
 }
 
 a:nth-child(2) {
@@ -60,6 +64,7 @@ a:nth-child(2) {
     left: 52.5%;
     transform-origin: -10% 110%;
     transition: transform .4s .2s;
+    background-image: url('/assets/Estudios.jpg');
 }
 
 a:nth-child(3) {
@@ -67,6 +72,7 @@ a:nth-child(3) {
     top: 52.5%;
     transform-origin: 110% -10%;
     transition: transform .4s .25s;
+    background-image: url('/assets/Experiencia.jpg');
 }
 
 a:nth-child(4) {
@@ -75,6 +81,7 @@ a:nth-child(4) {
     left: 52.5%;
     transform-origin: -10% -10%;
     transition: transform .4s .3s;
+    background-image: url('/assets/Contacto.jpg');
 }
 
 a:nth-child(5) {
@@ -133,7 +140,8 @@ a:hover div {
 }
 
 span {
-  color: black;
+  color: white;
+  -webkit-text-stroke: 5px black;
   font-size: 30vmin;
   margin: 20vmin 0 20vmin 0;
 }
@@ -144,7 +152,7 @@ span {
     top: 50%;
     transform: translate(-50%, -50%) scale(0.2);
 }
-.wrap.is-open-skills {
+.wrap.is-open-studies {
     left: 20%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0.2);
