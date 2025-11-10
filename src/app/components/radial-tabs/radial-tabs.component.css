@@ -24,7 +24,7 @@
     top: 50%;
     width: var(--size-with);
     height: var(--size-height);
-    
+
     background: transparent;
     transform-origin: center center;
     transform: translate(-50%, -50%) scale(0.2);
@@ -32,10 +32,10 @@
     /* transition: transform .5s, opacity .5s; */
     z-index: 1;
 
-    transition: transform .9s ease, 
-                opacity 1s ease,
-                left 1s ease,
-                top 1s ease;
+    transition: transform .9s ease,
+        opacity 1s ease,
+        left 1s ease,
+        top 1s ease;
 }
 
 a {
@@ -50,7 +50,50 @@ a {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* ! Fondo circular difuminado */
+a span {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+a span::before {
+    content: "";
+    position: absolute;
+    inset: 50%;
+    width: 250vmin;
+    height: 40vmin;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgb(3 3 3), rgb(0 0 0 / 0%));
+    filter: blur(10px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* a::before {
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(2.5px);
+  transform: scale(1.1);
+  z-index: 0;
+  
+}
+
+a span {
+  position: relative;
+  z-index: 1;
+  color: white;
+  -webkit-text-stroke: 0;
+  text-shadow: 0 0 18px rgba(0,0,0,0.8);
+} */
 
 a:nth-child(1) {
     border-radius: 40vmin 0 0 0;
@@ -94,16 +137,18 @@ a:nth-child(5) {
     transform: scale(1);
 }
 
-.top-span{
+.top-span {
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
-.down-span{
+
+.down-span {
     display: flex;
     justify-content: center;
-    align-items: flex-end; 
+    align-items: flex-end;
 }
+
 .wrap>.avatar {
     position: absolute;
     left: 50%;
@@ -140,10 +185,10 @@ a:hover div {
 }
 
 span {
-  color: white;
-  -webkit-text-stroke: 5px black;
-  font-size: 30vmin;
-  margin: 20vmin 0 20vmin 0;
+    color: white;
+    -webkit-text-stroke: 5px black;
+    font-size: 30vmin;
+    margin: 20vmin 0 20vmin 0;
 }
 
 
@@ -152,16 +197,19 @@ span {
     top: 50%;
     transform: translate(-50%, -50%) scale(0.2);
 }
+
 .wrap.is-open-studies {
     left: 20%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0.2);
 }
+
 .wrap.is-open-projects {
     left: 80%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0.2);
 }
+
 .wrap.is-open-contact {
     left: 20%;
     top: 50%;
