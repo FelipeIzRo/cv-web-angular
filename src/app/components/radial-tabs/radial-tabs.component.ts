@@ -23,7 +23,28 @@ export class RadialTabsComponent {
   }
 
   focusTab(tab: 'about' | 'studies' | 'projects' | 'contact' | null){
-    console.log('focus: ' , tab)
     this.focusedTab = tab;
+  }
+
+  getImagePath(){
+
+    switch(this.activeTab){
+      case 'about':
+        console.log('/assets/SobreMi.jpg')
+        return '/assets/SobreMi.jpg'
+      case 'projects':
+        console.log('/assets/Experiencia.jpg')
+        return '/assets/Experiencia.jpg';
+      case 'studies':
+        console.log('/assets/Estudios.jpg');
+        return '/assets/Estudios.jpg';
+      case 'contact':
+        console.log('/assets/Contacto.jpg');
+        return '/assets/Contacto.jpg';
+      case null:
+        return '';
+      default:
+        return '';
+    }
   }
 }

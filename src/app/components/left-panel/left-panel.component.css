@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 50vw;
+  width: 70vw;
   background: rgba(15, 15, 20, 0.98);
   color: #f5f5f5;
   box-shadow: 8px 0 30px rgba(0, 0, 0, 0.45);
@@ -13,7 +13,29 @@
   display: flex;
   align-items: center;
 }
-
+.tab-image{
+    position: fixed;
+  top: 0;
+  right: 0;                    /* 👈 ahora anclado al lado derecho */
+  left: auto;                  /* por si acaso */
+  height: 100vh;
+  width: 30vw;                 /* ocupa la mitad derecha de la pantalla */
+  /* background-image: url("/assets/Contacto.jpg"); */
+  color: #f5f5f5;
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.45); /* sombra hacia la izquierda */
+  transform: translateX(-500%); /* 👈 empieza fuera por la derecha */
+  transition: transform 1s ease;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.tab-image.is-visible{
+  transform: translate(0);
+}
 .tab-panel.is-visible {
   transform: translateX(0);
 }

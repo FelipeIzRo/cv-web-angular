@@ -182,23 +182,23 @@ span {
 .wrap.is-open-about {
     left: 80%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(0.2);
+    transform: translate(-46%, -50%) scale(0.2);
 }
 
 .wrap.is-open-studies {
     left: 20%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(0.2);
+    transform: translate(-54%, -50%) scale(0.2);
 }
 
 .wrap.is-open-projects {
     left: 80%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(0.2);
+    transform: translate(-46%, -50%) scale(0.2);
 }
 
 .wrap.is-open-contact {
     left: 20%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(0.2);
+    transform: translate(-54%, -50%) scale(0.2);
 }

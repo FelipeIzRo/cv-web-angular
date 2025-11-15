@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-right-panel',
@@ -7,8 +7,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './right-panel.component.html',
   styleUrl: './right-panel.component.css'
 })
-export class RightPanelComponent {
+export class RightPanelComponent{
   @Input() visible: boolean = false;
+  //TODO Esto falta por poner que el padre llame a firebase y cargue los textos
+  @Input() title: string = 'default-text';
+  @Input() contents: string = 'default-text'
+  @Input() pathImg:string = '';
   @Output() close = new EventEmitter<void>();
 
   onClose() {
