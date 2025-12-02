@@ -15,7 +15,8 @@
   align-items: center;
 }
 .tab-image{
-    position: fixed;
+  visibility: hidden;
+  position: fixed;
   top: 0;
   left: 0;                    /* 👈 ahora anclado al lado derecho */
   right: auto;                  /* por si acaso */
@@ -35,6 +36,7 @@
   z-index: 0;
 }
 .tab-image.is-visible{
+  visibility: visible;
   transform: translate(0);
 }
 .tab-panel.is-visible {
