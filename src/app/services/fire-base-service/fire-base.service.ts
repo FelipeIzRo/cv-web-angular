@@ -24,17 +24,14 @@ export class FireBaseService {
     return snap.exists() ? (snap.data() as PersonalData) : undefined;
   }
 
-  getDocument<T>(collectionName: string, documentId: string): Observable<T[]> {
+  getDocument(collectionName: string, documentId: string): Observable<any | undefined> {
     if (!this.firestore) {
       console.warn("Firestore no está inicializado. Retornando array vacío.");
       return of([]); // Retorna un Observable de un array vacío si firestore no está disponible
     }
-    // La referencia a la subcolección es correcta
-    const ref = collection(this.firestore, collectionName, documentId, 'ESTUDIO');
+    const docRef = doc(this.firestore, collectionName, documentId);
 
-    // collectionData retorna Observable<T[]>, así que el cast es a Observable<T[]>
-    // Añadimos { idField: 'id' } para que el ID del documento se incluya en cada objeto
-    return collectionData(ref, { idField: 'id' }) as Observable<T[]>;
+    return docData(docRef) as Observable<any | undefined>
   }
 
   getDocumentArrayField<T>(collectionName: string, documentId: string, arrayFieldName: string): Observable<T[] | undefined> {

@@ -22,10 +22,11 @@ export class LeftPanelComponent implements OnInit {
   @Inject(FireBaseService) private fireBaseService = inject(FireBaseService);
 
   ngOnInit(): void {
-    this.panelData();
+    this.getListData();
+    this.getDocumentData();
   }
 
-  panelData() {
+  getListData() {
     const data: Observable<Studies[] | undefined> = this.fireBaseService.getDocumentArrayField<Studies>(
       'ESTUDIOS',                       // Nombre de la colección principal
       'JsQdBul7oM8HeoebALwJ',           // ID del documento que contiene el array
@@ -51,6 +52,23 @@ export class LeftPanelComponent implements OnInit {
       }
     });
 
+  }
+
+  //! ESTO SOLO ES UN EJEMPLO DE QUE SE PUEDE ACCEDER A LOS DOCUMENTOS PONIENDO BARRA Y ANIDAR
+  //! COLECCIONES
+  //! TAREAS QUE HACER PARA DEJARLO CLARO Y NO ENRREVESAR EL CODIGO
+  //TODO  1- Crear un metodo sencillo que cree el path de la coleccion que quieras acceder 
+  //TODO   2- Investigar si puedo recorrer collecciones de manera recursiva 
+  //TODO   3- Organizar metodos y dejar bien organizado el tipado
+  getDocumentData(){
+    const data = this.fireBaseService.getDocument('PRUEBA','PLd0lIshk5jXxISo1urQ/PRUEBA_CHILD/tRgkckBj2D7Gngsp4lfH').subscribe({
+      next:(value) => {
+        console.log('VALUE: ' , value);
+      },
+      error:(err) => {
+        console.error('Error en get document');
+      }
+    })
   }
 
   onClose() {
