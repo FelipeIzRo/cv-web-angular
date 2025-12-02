@@ -30,16 +30,16 @@ export class RadialTabsComponent {
 
     switch(this.activeTab){
       case 'about':
-        console.log('/assets/SobreMi.jpg')
+        // console.log('/assets/SobreMi.jpg')
         return '/assets/SobreMi.jpg'
       case 'projects':
-        console.log('/assets/Experiencia.jpg')
+        // console.log('/assets/Experiencia.jpg')
         return '/assets/Experiencia.jpg';
       case 'studies':
-        console.log('/assets/Estudios.jpg');
+        // console.log('/assets/Estudios.jpg');
         return '/assets/Estudios.jpg';
       case 'contact':
-        console.log('/assets/Contacto.jpg');
+        // console.log('/assets/Contacto.jpg');
         return '/assets/Contacto.jpg';
       case null:
         return '';
