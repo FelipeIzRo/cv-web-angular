@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Inject, inject, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, computed, EventEmitter, Inject, inject, Input, OnDestroy, OnInit, Output, signal, Signal, WritableSignal } from '@angular/core';
 import { FireBaseService } from '../../services/fire-base-service/fire-base.service';
 import { Studies } from '../../interfaces/studies';
 import { catchError, map, Observable, of, Subscription } from 'rxjs';
@@ -21,6 +21,8 @@ export class LeftPanelComponent implements OnInit, OnDestroy{
   @Input() pathImg: string = '';
   @Inject(FireBaseService) private fireBaseService = inject(FireBaseService);
 
+
+  public readonly studiesSignal:WritableSignal<Studies[]> = signal([]);
   private dataSubscription?: Subscription;
 
   ngOnInit(): void {
@@ -36,6 +38,7 @@ export class LeftPanelComponent implements OnInit, OnDestroy{
     .subscribe({
       next:(value) => {
         console.log('VALUE: ' , value?.ESTUDIO);
+        this.studiesSignal.set(value?.ESTUDIO ?? []);
       },
       error:(err) => {
         console.error('Error en get document');

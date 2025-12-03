@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, doc, docData, setDoc, getDoc, collectionData, getDocs, QueryDocumentSnapshot, DocumentData } from '@angular/fire/firestore';
+import { Firestore, collection, doc, docData, setDoc, getDoc, collectionData, getDocs, QueryDocumentSnapshot, DocumentData, updateDoc } from '@angular/fire/firestore';
 import { catchError, map, Observable, of } from 'rxjs';
 import { PersonalData } from '../../interfaces/personal-data';
 import { Studies } from '../../interfaces/studies';
@@ -34,6 +34,10 @@ export class FireBaseService {
   }
 
 
+  updateDocument(collection: string, documentId: string, data: any): Promise<void> {
+    const docRef = doc(this.firestore, collection, documentId);
+    return updateDoc(docRef, data);
+  }
 
   // Tambien se puede por ejemplo obtener lista con observables
   /*
