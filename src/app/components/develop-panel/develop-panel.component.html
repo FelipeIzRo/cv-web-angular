@@ -1,0 +1,30 @@
+<div
+  class="floating-panel"
+  [ngStyle]="{ top: top + 'px', left: left + 'px' }"
+>
+  <!-- Barra para arrastrar -->
+  <div class="panel-header" (mousedown)="onDragStart($event)">
+    <span>Panel de pruebas Firebase</span>
+  </div>
+
+  <!-- Contenido -->
+  <div class="panel-body">
+    <label>
+      Campo 1
+      <input type="text" [(ngModel)]="field1">
+    </label>
+
+    <label>
+      Campo 2
+      <input type="text" [(ngModel)]="field2">
+    </label>
+
+    <label>
+      Campo 3
+      <input type="text" [(ngModel)]="field3">
+    </label>
+
+    <!-- Más adelante aquí pondremos el botón de update -->
+    <!-- <button (click)="update()">Actualizar</button> -->
+  </div>
+</div>
