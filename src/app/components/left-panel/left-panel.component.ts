@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Inject, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, inject, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FireBaseService } from '../../services/fire-base-service/fire-base.service';
 import { Studies } from '../../interfaces/studies';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, of, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-left-panel',
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   templateUrl: './left-panel.component.html',
   styleUrl: './left-panel.component.css'
 })
-export class LeftPanelComponent implements OnInit {
+export class LeftPanelComponent implements OnInit, OnDestroy{
 
   @Input() visible: boolean = false;
   //TODO Esto falta por poner que el padre llame a firebase y cargue los textos
@@ -21,54 +21,27 @@ export class LeftPanelComponent implements OnInit {
   @Input() pathImg: string = '';
   @Inject(FireBaseService) private fireBaseService = inject(FireBaseService);
 
+  private dataSubscription?: Subscription;
+
   ngOnInit(): void {
-    this.getListData();
-    this.getDocumentData();
+    this.setDocumentData();
   }
-
-  getListData() {
-    const data: Observable<Studies[] | undefined> = this.fireBaseService.getDocumentArrayField<Studies>(
-      'ESTUDIOS',                       // Nombre de la colección principal
-      'JsQdBul7oM8HeoebALwJ',           // ID del documento que contiene el array
-      'ESTUDIO'                         // ¡El nombre del campo dentro de ese documento que es un array!
-    );
-
-    data.subscribe({
-      next: (studiesList: Studies[] | undefined) => {
-        if (studiesList) {
-          console.log("Lista de estudios desde el campo array:\n", studiesList);
-          if (studiesList.length === 0) {
-            console.log("El campo 'ESTUDIO' en el documento está vacío.");
-          }
-        } else {
-          console.log("El campo 'ESTUDIO' no se encontró o no es un array en el documento.");
-        }
-      },
-      error: (err) => {
-        console.error('Error al obtener la lista de estudios del campo array:\n', err);
-      },
-      complete: () => {
-        console.log('Obtención de lista de estudios del campo array completada.');
-      }
-    });
-
+  ngOnDestroy(): void {
+    this.dataSubscription?.unsubscribe();
   }
+  setDocumentData(){
 
-  //! ESTO SOLO ES UN EJEMPLO DE QUE SE PUEDE ACCEDER A LOS DOCUMENTOS PONIENDO BARRA Y ANIDAR
-  //! COLECCIONES
-  //! TAREAS QUE HACER PARA DEJARLO CLARO Y NO ENRREVESAR EL CODIGO
-  //TODO  1- Crear un metodo sencillo que cree el path de la coleccion que quieras acceder 
-  //TODO   2- Investigar si puedo recorrer collecciones de manera recursiva 
-  //TODO   3- Organizar metodos y dejar bien organizado el tipado
-  getDocumentData(){
-    const data = this.fireBaseService.getDocument('PRUEBA','PLd0lIshk5jXxISo1urQ/PRUEBA_CHILD/tRgkckBj2D7Gngsp4lfH').subscribe({
+    // {ESTUDIO:Studies[]} esto solo porque el array tiene el field ESTUDIO para poder ser llamado
+    this.dataSubscription = this.fireBaseService.getDocument<{ESTUDIO:Studies[]}>('ESTUDIOS/JsQdBul7oM8HeoebALwJ')
+    .subscribe({
       next:(value) => {
-        console.log('VALUE: ' , value);
+        console.log('VALUE: ' , value?.ESTUDIO);
       },
       error:(err) => {
         console.error('Error en get document');
       }
     })
+
   }
 
   onClose() {

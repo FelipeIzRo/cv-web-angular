@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, doc, docData, setDoc, getDoc, collectionData, getDocs, QueryDocumentSnapshot } from '@angular/fire/firestore';
+import { Firestore, collection, doc, docData, setDoc, getDoc, collectionData, getDocs, QueryDocumentSnapshot, DocumentData } from '@angular/fire/firestore';
 import { catchError, map, Observable, of } from 'rxjs';
 import { PersonalData } from '../../interfaces/personal-data';
 import { Studies } from '../../interfaces/studies';
@@ -24,43 +24,16 @@ export class FireBaseService {
     return snap.exists() ? (snap.data() as PersonalData) : undefined;
   }
 
-  getDocument(collectionName: string, documentId: string): Observable<any | undefined> {
+  getDocument<T>(docPath: string): Observable<T | undefined> {
     if (!this.firestore) {
       console.warn("Firestore no está inicializado. Retornando array vacío.");
-      return of([]); // Retorna un Observable de un array vacío si firestore no está disponible
+      return of([] as T); // Retorna un Observable de un array vacío si firestore no está disponible
     }
-    const docRef = doc(this.firestore, collectionName, documentId);
-
-    return docData(docRef) as Observable<any | undefined>
+    const docRef = doc(this.firestore, docPath);
+    return docData(docRef) as Observable<T | undefined>
   }
 
-  getDocumentArrayField<T>(collectionName: string, documentId: string, arrayFieldName: string): Observable<T[] | undefined> {
-    if (!this.firestore) {
-      console.warn("Firestore no está inicializado. Retornando undefined.");
-      return of(undefined);
-    }
 
-    // 1. Obtiene la referencia al documento específico (el "documento padre")
-    const docRef = doc(this.firestore, collectionName, documentId);
-
-    // 2. Usa docData() para obtener el contenido del documento como un Observable
-    //    Luego, usamos el operador map para extraer el array del campo deseado
-    return docData(docRef).pipe(
-      map(documentSnapshot => {
-        if (documentSnapshot && documentSnapshot[arrayFieldName] && Array.isArray(documentSnapshot[arrayFieldName])) {
-          // Si el documento existe, tiene el campo, y es un array,
-          // lo casteamos a T[] y lo retornamos.
-          return documentSnapshot[arrayFieldName] as T[];
-        }
-        // Si no se encuentra el documento, el campo, o no es un array, retornamos undefined
-        return undefined;
-      }),
-      catchError(error => {
-        console.error(`Error al obtener el campo '${arrayFieldName}' del documento '${documentId}':`, error);
-        return of(undefined); // Devuelve un Observable de undefined en caso de error
-      })
-    );
-  }
 
   // Tambien se puede por ejemplo obtener lista con observables
   /*
@@ -111,5 +84,5 @@ export class FireBaseService {
     const ref = doc(this.firestore, 'DATOS_PERSONALES', 'Lqxyb4o38VjsdnZrOF5q');
     return setDoc(ref, partial, { merge: true });
   }
-
+  
 }
