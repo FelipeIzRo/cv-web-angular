@@ -84,6 +84,6 @@
   box-sizing: border-box;
   display: flex;         /* 👈 hacemos flex vertical */
   flex-direction: column;
-  gap: 10rem; 
- 
+  min-height: min-content;
+  overflow: hidden;
 }

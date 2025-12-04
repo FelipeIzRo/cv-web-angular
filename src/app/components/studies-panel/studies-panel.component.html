@@ -1,9 +1,18 @@
 
-    <div *ngFor="let studie of studiesSignal()">
-      {{studie.nombre}}
-      {{studie.description}}
-      {{studie.start}}
-      {{studie.end}}
-      {{studie.entity}}
-      {{studie.type}}
+    <div *ngFor="let studie of studiesSignal(); let i = index" 
+    (click)="toggleExpand(i)">
+      <h2>
+        {{studie.nombre}}
+      </h2>
+      <h4>
+        {{studie.entity}}
+      </h4>
+      <h5>
+        {{studie.start}}
+        {{studie.end}}
+      </h5>
+      <p>
+        {{studie.description}}
+      </p>
+      <!-- {{studie.type}} -->
     </div>
