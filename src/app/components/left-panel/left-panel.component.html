@@ -2,10 +2,14 @@
   <div class="tab-panel-inner">
     <button class="close-btn" (click)="onClose()">✕</button>
     <h2>About me</h2>
-    <p>
-      Aquí metes tu texto: quién eres, qué tecnologías dominas,
-      qué te gusta construir, etc. Luego lo dejamos fino.
-    </p>
+    <div *ngFor="let studie of studiesSignal()">
+      {{studie.nombre}}
+      {{studie.description}}
+      {{studie.start}}
+      {{studie.end}}
+      {{studie.entity}}
+      {{studie.type}}
+    </div>
   </div>
 </div>
 <div class="tab-image" [class.is-visible]="visible" [style.background-image]="'url(' + pathImg + ')'">
