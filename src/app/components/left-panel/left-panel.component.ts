@@ -34,11 +34,11 @@ export class LeftPanelComponent implements OnInit, OnDestroy{
   setDocumentData(){
 
     // {ESTUDIO:Studies[]} esto solo porque el array tiene el field ESTUDIO para poder ser llamado
-    this.dataSubscription = this.fireBaseService.getDocument<{ESTUDIO:Studies[]}>('ESTUDIOS/JsQdBul7oM8HeoebALwJ')
+    this.dataSubscription = this.fireBaseService.getDocument<{LISTA_DE_ESTUDIOS:Studies[]}>('ESTUDIOS/JsQdBul7oM8HeoebALwJ')
     .subscribe({
       next:(value) => {
-        console.log('VALUE: ' , value?.ESTUDIO);
-        this.studiesSignal.set(value?.ESTUDIO ?? []);
+        console.log('VALUE: ' , value?.LISTA_DE_ESTUDIOS);
+        this.studiesSignal.set(value?.LISTA_DE_ESTUDIOS ?? []);
       },
       error:(err) => {
         console.error('Error en get document');

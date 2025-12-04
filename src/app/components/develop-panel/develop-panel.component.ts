@@ -1,6 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FireBaseService } from '../../services/fire-base-service/fire-base.service';
 
 @Component({
   selector: 'app-develop-panel',
@@ -9,6 +10,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './develop-panel.component.css'
 })
 export class DevelopPanelComponent {
+  @Inject(FireBaseService) private fireBaseService = inject(FireBaseService);
+
+
   // Posición inicial del panel
   top = 100;
   left = 100;
@@ -19,8 +23,8 @@ export class DevelopPanelComponent {
   private offsetY = 0;
 
   // Inputs (empiezan vacíos)
-  field1 = '';
-  field2 = '';
+  field1 = 'ESTUDIOS';
+  field2 = 'JsQdBul7oM8HeoebALwJ';
   field3 = '';
 
   // Cuando pulsas en la barra superior
@@ -43,5 +47,9 @@ export class DevelopPanelComponent {
   @HostListener('window:mouseup')
   onDragEnd() {
     this.dragging = false;
+  }
+
+  public update(){
+    this.fireBaseService.updateDocument(this.field1,this.field2, JSON.parse(this.field3))
   }
 }
