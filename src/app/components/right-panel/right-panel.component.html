@@ -2,7 +2,7 @@
   <div class="tab-panel-inner">
     <button class="close-btn" (click)="onClose()">✕</button>
 
-    <app-studies-panel *ngIf="activeTab === 'studies'"></app-studies-panel>
+    <app-studies-panel class="studies-wrapper" *ngIf="activeTab === 'studies'"></app-studies-panel>
 
     <div *ngIf="activeTab === 'contact'"></div>
   </div>
