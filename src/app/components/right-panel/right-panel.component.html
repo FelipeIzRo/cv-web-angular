@@ -1,9 +1,9 @@
 <div class="tab-panel" [class.is-visible]="visible">
   <div class="tab-panel-inner">
     <button class="close-btn" (click)="onClose()">✕</button>
-    <div *ngIf="activeTab === 'studies'">
-      <app-studies-panel></app-studies-panel>
-    </div>
+
+    <app-studies-panel *ngIf="activeTab === 'studies'"></app-studies-panel>
+
     <div *ngIf="activeTab === 'contact'"></div>
   </div>
 </div>
