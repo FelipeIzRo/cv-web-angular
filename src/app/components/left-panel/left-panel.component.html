@@ -1,15 +1,8 @@
 <div class="tab-panel" [class.is-visible]="visible">
   <div class="tab-panel-inner">
     <button class="close-btn" (click)="onClose()">✕</button>
-    <h2>About me</h2>
-    <div *ngFor="let studie of studiesSignal()">
-      {{studie.nombre}}
-      {{studie.description}}
-      {{studie.start}}
-      {{studie.end}}
-      {{studie.entity}}
-      {{studie.type}}
-    </div>
+    <div *ngIf="activeTab === 'about'"></div>
+    <div *ngIf="activeTab === 'projects'"></div>
   </div>
 </div>
 <div class="tab-image" [class.is-visible]="visible" [style.background-image]="'url(' + pathImg + ')'">

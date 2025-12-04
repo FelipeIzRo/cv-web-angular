@@ -52,12 +52,14 @@
 
   <app-left-panel
   [visible]="activeTab === 'about'|| activeTab ==='projects'"
+  [activeTab]="activeTab?.valueOf()"
   [pathImg]="getImagePath()"
   (close)="closeTab()">
   </app-left-panel>
 
   <app-right-panel
   [visible]="activeTab === 'studies'|| activeTab ==='contact'"
+  [activeTab]="activeTab?.valueOf()"
   (close)="closeTab()"
   [pathImg]="getImagePath()"
   >

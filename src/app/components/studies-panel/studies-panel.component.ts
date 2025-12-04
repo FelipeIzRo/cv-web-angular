@@ -5,23 +5,14 @@ import { Studies } from '../../interfaces/studies';
 import { catchError, map, Observable, of, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-left-panel',
+  selector: 'app-studies-panel',
   imports: [CommonModule],
-  templateUrl: './left-panel.component.html',
-  styleUrl: './left-panel.component.css'
+  templateUrl: './studies-panel.component.html',
+  styleUrl: './studies-panel.component.css'
 })
-export class LeftPanelComponent implements OnInit, OnDestroy{
+export class StudiesPanelComponent implements OnInit, OnDestroy{
 
-  @Input() visible: boolean = false;
-  //TODO Esto falta por poner que el padre llame a firebase y cargue los textos
-  // @Input() title: string = 'default-text';
-  // @Input() contents: string = 'default-text'
-  @Input() activeTab: string | undefined = undefined;
-  @Output() close = new EventEmitter<void>();
-  @Input() pathImg: string = '';
   @Inject(FireBaseService) private fireBaseService = inject(FireBaseService);
-
-
   public readonly studiesSignal:WritableSignal<Studies[]> = signal([]);
   private dataSubscription?: Subscription;
 
@@ -33,7 +24,7 @@ export class LeftPanelComponent implements OnInit, OnDestroy{
   }
   setDocumentData(){
 
-    // {ESTUDIO:Studies[]} esto solo porque el array tiene el field ESTUDIO para poder ser llamado
+    // {LISTA_DE_ESTUDIOS:Studies[]} esto solo porque el array tiene el field ESTUDIO para poder ser llamado
     this.dataSubscription = this.fireBaseService.getDocument<{LISTA_DE_ESTUDIOS:Studies[]}>('ESTUDIOS/JsQdBul7oM8HeoebALwJ')
     .subscribe({
       next:(value) => {
@@ -47,7 +38,4 @@ export class LeftPanelComponent implements OnInit, OnDestroy{
 
   }
 
-  onClose() {
-    this.close.emit();
-  }
 }
