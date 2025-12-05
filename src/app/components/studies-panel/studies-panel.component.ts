@@ -16,11 +16,11 @@ export class StudiesPanelComponent implements OnInit, OnDestroy{
   public readonly studiesSignal:WritableSignal<Studies[]> = signal([]);
   private dataSubscription?: Subscription;
 
-  expandedIndex = -1;
+   expandedIndex = signal<number | null>(null);
 
-  toggleExpand(i: number) {
-    this.expandedIndex = this.expandedIndex === i ? -1 : i;
-  }
+toggleExpand(i: number) {
+  this.expandedIndex.set(this.expandedIndex() === i ? null : i);
+}
 
   ngOnInit(): void {
     this.setDocumentData();

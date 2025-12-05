@@ -1,18 +1,17 @@
+<div *ngFor="let studie of studiesSignal(); let i = index" 
+     (click)="toggleExpand(i)"
+     [class.expanded]="expandedIndex() === i">
 
-    <div *ngFor="let studie of studiesSignal(); let i = index" 
-    (click)="toggleExpand(i)">
-      <h2>
-        {{studie.nombre}}
-      </h2>
-      <h4>
-        {{studie.entity}}
-      </h4>
-      <h5>
-        {{studie.start}}
-        {{studie.end}}
-      </h5>
-      <p>
-        {{studie.description}}
-      </p>
-      <!-- {{studie.type}} -->
-    </div>
+  <div class="text text-primary">
+    <h2>{{studie.nombre}}</h2>
+    <h4>{{studie.entity}}</h4>
+    <h5>{{studie.start}} {{studie.end}}</h5>
+    <p>{{studie.description}}</p>
+  </div>
+
+  <div class="text text-secondary">
+    <!-- TEXTO NUEVO QUE ENTRA -->
+    <p>Otro texto que aparece al pulsar</p>
+  </div>
+
+</div>

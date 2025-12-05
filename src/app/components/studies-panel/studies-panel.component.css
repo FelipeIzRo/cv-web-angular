@@ -8,14 +8,41 @@ div {
   margin-bottom: 1rem;
   background: rgba(255,255,255,0.08);
   border-radius: 8px;
-  /* height: 100%; */
+  flex: 1;
+  overflow: hidden; /* IMPORTANTE para animación */
+  position: relative; /* para posicionar los textos */
 }
 
-h2,h4,h5{
-    margin: 6px 0;
+h2, h4, h5 {
+  margin: 6px 0;
 }
-:host div:hover {
-  background: rgba(255, 255, 255, 0.18);
-  cursor: pointer;
-  transition: background 0.3s ease;
+
+/* ———————————— */
+/* ANIMACIÓN SOLO CSS */
+/* ———————————— */
+
+/* Ambos textos se apilan uno sobre otro */
+.text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.35s ease;
+}
+
+/* Texto nuevo oculto inicialmente */
+.text-secondary {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Estado expandido (cuando se hace click) */
+div.expanded .text-primary {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+div.expanded .text-secondary {
+  transform: translateX(0);
+  opacity: 1;
 }
