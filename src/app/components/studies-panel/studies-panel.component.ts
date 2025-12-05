@@ -18,9 +18,9 @@ export class StudiesPanelComponent implements OnInit, OnDestroy{
 
    expandedIndex = signal<number | null>(null);
 
-toggleExpand(i: number) {
-  this.expandedIndex.set(this.expandedIndex() === i ? null : i);
-}
+  toggleExpand(i: number) {
+    this.expandedIndex.set(this.expandedIndex() === i ? null : i);
+  }
 
   ngOnInit(): void {
     this.setDocumentData();

@@ -6,7 +6,7 @@
 div {
   padding: 1rem;
   margin-bottom: 1rem;
-  background: rgba(255,255,255,0.08);
+  background: rgb(59, 59, 59);
   border-radius: 8px;
   flex: 1;
   overflow: hidden; /* IMPORTANTE para animación */
