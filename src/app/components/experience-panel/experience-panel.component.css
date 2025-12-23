@@ -80,3 +80,16 @@
   background: rgba(255, 255, 255, 0.25);
   border-radius: 3px;
 }
+.detail-panel{
+
+}
+.detail-header{
+
+}
+.detail-content{
+
+}
+
+h3,h4{
+    margin: 0;
+}
