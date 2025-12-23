@@ -45,7 +45,9 @@
 .tab-panel-inner {
   padding: 3rem;
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
+  align-content: center;
 }
 
 .close-btn {

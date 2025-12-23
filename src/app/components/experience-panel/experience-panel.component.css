@@ -2,8 +2,10 @@
   display: flex;
   gap: 2rem;
   width: 100%;
+  height: 100%;
   max-width: 900px;
   margin: 0 auto;
+  align-items: anchor-center;
 }
 
 /* Tarjetas base */
@@ -81,10 +83,10 @@
   border-radius: 3px;
 }
 .detail-panel{
-
+  background-color: var(--color-subpanel-dark);
 }
 .detail-header{
-
+  background-color: var(--color-subpanel-child-dark);
 }
 .detail-content{
 
