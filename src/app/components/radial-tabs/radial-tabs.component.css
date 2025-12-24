@@ -82,7 +82,7 @@ a:nth-child(1) {
     border-radius: 40vmin 0 0 0;
     transform-origin: 110% 110%;
     transition: transform .4s .15s;
-    background-image: url('/assets/SobreMi.jpg');
+    background-image: url('../../../../assets//SobreMi.jpg');
 }
 
 a:nth-child(2) {
@@ -90,7 +90,7 @@ a:nth-child(2) {
     left: 52.5%;
     transform-origin: -10% 110%;
     transition: transform .4s .2s;
-    background-image: url('/assets/Estudios.jpg');
+    background-image: url('../../../../assets//Estudios.jpg');
 }
 
 a:nth-child(3) {
@@ -98,7 +98,7 @@ a:nth-child(3) {
     top: 52.5%;
     transform-origin: 110% -10%;
     transition: transform .4s .25s;
-    background-image: url('/assets/Experiencia.jpg');
+    background-image: url('../../../../assets//Experiencia.jpg');
 }
 
 a:nth-child(4) {
@@ -107,7 +107,7 @@ a:nth-child(4) {
     left: 52.5%;
     transform-origin: -10% -10%;
     transition: transform .4s .3s;
-    background-image: url('/assets/Contacto.jpg');
+    background-image: url('../../../../assets//Contacto.jpg');
 }
 
 a:nth-child(5) {
@@ -145,7 +145,7 @@ a:nth-child(5) {
     border-radius: 50%;
 
     /* ! Esto seria para poner la imagen */
-    /* background-image: url('/assets/FotoPerfil.png');
+    /* background-image: url('../../../../assets//FotoPerfil.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; */
