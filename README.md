@@ -52,9 +52,10 @@ Despliegue directo con `ng deploy` (angular-cli-ghpages):
 
 Prerequisito (ya configurado en este repo): `angular.json` incluye `architect.deploy.builder: "angular-cli-ghpages:deploy"`. Si no lo tuvieras, ejecuta: `ng add angular-cli-ghpages`.
 
-Comando que funciona en este proyecto:
+Comandos que funcionas en este proyecto:
 
 - `ng deploy --base-href=https://felipeizro.github.io/cv-web-angular/`
+- `ng deploy --configuration=production --base-href=https://felipeizro.github.io/cv-web-angular/`
 
 Este comando:
 - Genera el build de producción con el `baseHref` correcto (`/cv-web-angular/`).
