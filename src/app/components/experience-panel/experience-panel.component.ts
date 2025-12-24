@@ -10,10 +10,17 @@ import { Component } from '@angular/core';
 export class ExperiencePanelComponent {
 
   view: 'menu' | 'experience' | 'technologies' = 'menu';
+  openPanels: Record<string, boolean> = {
+    indra: false,
+    mercanza: false
+  };
 
   selectView(view:'menu' | 'experience' | 'technologies') {
     this.view = view;
   }
 
+  togglePanel(panel: string) {
+  this.openPanels[panel] = !this.openPanels[panel];
+}
 
 }

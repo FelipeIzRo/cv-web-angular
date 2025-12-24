@@ -52,8 +52,9 @@
 /* Vista detalle */
 .experience-detail {
   width: 100%;
-  /* max-width: 800px; */
-  /* margin: 0 auto; */
+  height: 100%;
+  align-content: center;
+  position: relative;
 }
 
 /* Botón volver */
@@ -64,6 +65,8 @@
   font-size: 1rem;
   cursor: pointer;
   margin-bottom: 1.5rem;
+  position: absolute;
+  top: 0;
 }
 
 /* Contenedor con scroll */
@@ -84,11 +87,31 @@
 }
 .detail-panel{
   background-color: var(--color-subpanel-dark);
+  margin: 40px 0;
 }
 .detail-header{
-  background-color: var(--color-subpanel-child-dark);
+  cursor: pointer;
+  user-select: none;
   padding: 1rem;
+  background-color: var(--color-subpanel-child-dark);
+  border-radius: 8px;
+  transition: background 0.2s ease;
 }
-.detail-content{
+.detail-header:hover {
+  background: var(--color-selected-dark);
+}
+
+.detail-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s cubic-bezier(0.11, 0.37, 0.17, 0.72);
+}
+
+.detail-content.open {
+  max-height: 2000px;
+  transition: max-height 1.0s ease-in; 
+}
+
+.detail-inner {
   padding: 1rem;
 }
