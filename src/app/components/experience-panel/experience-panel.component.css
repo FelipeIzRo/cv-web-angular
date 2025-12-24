@@ -69,6 +69,26 @@
   top: 0;
 }
 
+.accordion-btn {
+  position: absolute;
+  right: 23px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: url('/assets/mas.png') no-repeat center;
+  background-size: contain;
+  cursor: pointer;
+  transition: background 0.7s cubic-bezier(0.18, 0, 1, 0.79)
+}
+
+.accordion-btn.open {
+  background-image: url('/assets/menos.png');
+  transition: background 0.2s cubic-bezier(0.18, 0, 1, 0.79)
+}
+
 /* Contenedor con scroll */
 .detail-scroll {
   max-height: 320px;
@@ -90,6 +110,7 @@
   margin: 40px 0;
 }
 .detail-header{
+  position: relative;
   cursor: pointer;
   user-select: none;
   padding: 1rem;
