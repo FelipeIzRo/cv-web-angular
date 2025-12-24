@@ -65,20 +65,166 @@
       <button class="back-btn" (click)="selectView('menu')">← Volver</button>
 
       <div class="detail-scroll">
+
+        <!-- LENGUAJES DE PROGRAMACION -->
         <app-accordion
-        [title]="'Desarrollador Full-Stack'"
-        [secondTitle]="'Mercanza'"
-        [thirdTitle]="'Septiembre 2023 - Diciembre 2023'"
-        content="Los proyectos en los que trabajé eran encargados de llevar el tratamiento 
-                        de datos personales y de negocio de diversas empresas con sus empleados o clientes.
-                        
-                        Estos proyectos usaban diferentes tecnologías pero en los que mas desarrollé
-                        usaban Angular y .NET con C#.
-        
-                        En estas aplicaciones web realicé sobre todo tareas
-                        de resolución de incidencias, correción de componentes de interfaz gráfica y
-                        optimización de consultas a APIs y Bases de datos relaccionales."
-        ></app-accordion>
+        [title]="'Java'"
+        [secondTitle]="'Nivel: Alto'"
+        content="Desarrollo backend aplicando programación orientada a objetos, creación de APIs REST, WebSockets, manejo de dependencias con Maven y ejecución en servidores de aplicaciones. Experiencia integrando backend con frontend.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'TypeScript'"
+        [secondTitle]="'Nivel: Alto'"
+        content="Uso avanzado de TypeScript en aplicaciones Angular, tipado estático, genéricos, manejo de estructuras de datos y lógica de negocio mantenible.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'Python'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Desarrollo de scripts y aplicaciones backend sencillas, automatización de tareas y consumo de APIs.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'C#'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Desarrollo de aplicaciones y scripts, principalmente en entornos de creación interactiva y motores de juego.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'JavaScript'"
+        [secondTitle]="'Nivel: Básico'"
+        content="Uso de JavaScript para complementar funcionalidades frontend y comprensión de su integración con frameworks modernos.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'PHP'"
+        [secondTitle]="'Nivel: Básico'"
+        content="Conocimientos básicos para desarrollo web backend y mantenimiento de aplicaciones existentes.">
+        </app-accordion>
+
+
+        <!-- MARCADO Y ESTILOS -->
+        <app-accordion
+        [title]="'HTML5 & CSS3'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Maquetación de interfaces web, estructuración semántica y diseño responsive adaptable a distintos dispositivos.">
+        </app-accordion>
+
+
+        <!-- DATOS Y FORMATOS -->
+        <app-accordion
+        [title]="'JSON & XML'"
+        [secondTitle]="'Nivel: Alto'"
+        content="Uso intensivo de formatos de intercambio de datos en APIs REST, configuración de servicios y comunicación entre sistemas.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'SQL'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Consultas a bases de datos relacionales, operaciones CRUD y comprensión de modelos de datos.">
+        </app-accordion>
+
+
+        <!-- FRAMEWORKS Y PLATAFORMAS -->
+        <app-accordion
+        [title]="'Spring Boot'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Creación de servicios REST, controladores, inyección de dependencias y estructuración de proyectos backend.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'Angular'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Desarrollo de aplicaciones SPA, consumo de APIs REST, componentes, servicios y manejo de estado con TypeScript.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'Ionic'"
+        [secondTitle]="'Nivel: Básico'"
+        content="Uso de Ionic para el desarrollo de aplicaciones híbridas y adaptación de interfaces a dispositivos móviles.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'Node.js'"
+        [secondTitle]="'Nivel: Básico'"
+        content="Conocimientos básicos del runtime para ejecución de aplicaciones JavaScript y soporte a herramientas de desarrollo.">
+        </app-accordion>
+
+
+        <!-- BASES DE DATOS -->
+        <app-accordion
+        [title]="'MySQL & SQL Server'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Uso de bases de datos relacionales, consultas SQL, gestión de datos y conexión desde aplicaciones backend.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'MongoDB & Firebase'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Uso de bases de datos NoSQL y BaaS para almacenamiento de datos, autenticación y servicios en tiempo real.">
+        </app-accordion>
+
+
+        <!-- MENSAJERIA Y STREAMING -->
+        <app-accordion
+        [title]="'MQTT (Mosquitto)'"
+        [secondTitle]="'Nivel: Alto'"
+        content="Uso de mensajería ligera para comunicación entre dispositivos y sistemas distribuidos mediante el protocolo MQTT.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'Kafka, RabbitMQ, NATS'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Conocimientos en sistemas de mensajería y streaming para comunicación asíncrona entre servicios.">
+        </app-accordion>
+
+
+        <!-- DEVOPS Y CONTROL DE VERSIONES -->
+        <app-accordion
+        [title]="'Git'"
+        [secondTitle]="'Nivel: Alto'"
+        content="Control de versiones, trabajo con ramas, resolución de conflictos y gestión de repositorios.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'Docker'"
+        [secondTitle]="'Nivel: Alto'"
+        content="Creación y uso de contenedores para entornos de desarrollo y despliegue de servicios backend.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'Jenkins'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Uso de pipelines básicos para integración y automatización de procesos de build.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'JIRA & Kanban (Trello)'"
+        [secondTitle]="'Nivel: Alto'"
+        content="Gestión de tareas, seguimiento de proyectos y trabajo colaborativo con metodologías ágiles.">
+        </app-accordion>
+
+
+        <!-- DESARROLLO MOVIL Y CREACIÓN INTERACTIVA -->
+        <app-accordion
+        [title]="'Android Studio & Capacitor'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Desarrollo y compilación de aplicaciones móviles, integración con funcionalidades nativas y despliegue en dispositivos físicos.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'Unity & Processing'"
+        [secondTitle]="'Nivel: Intermedio'"
+        content="Desarrollo de proyectos interactivos y videojuegos, lógica de juego y creación visual.">
+        </app-accordion>
+
+        <app-accordion
+        [title]="'Unreal Engine'"
+        [secondTitle]="'Nivel: Básico'"
+        content="Conocimientos iniciales en motores gráficos y desarrollo de experiencias interactivas.">
+        </app-accordion>
+
       </div>
 
     </div>
