@@ -93,7 +93,12 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "configurations": {
+            "production": {
+              "browserTarget": "cv-web-angular:build:production"
+            }
+          }
         }
       }
     }

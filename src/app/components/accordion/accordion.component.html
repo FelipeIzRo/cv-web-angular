@@ -1,0 +1,15 @@
+<div class="detail-panel">
+    <div class="detail-header" (click)="togglePanel()">
+        <h2>{{title}}</h2>
+        <h4>{{secondTitle}}</h4>
+        <h5>{{thirdTitle}}</h5>
+        <button class="accordion-btn" [class.open]="openPanel"></button>
+    </div>
+    <div class="detail-content" [class.open]="openPanel">
+        <div class="detail-inner">
+            <p>
+                {{content}}
+            </p>
+        </div>
+    </div>
+</div>

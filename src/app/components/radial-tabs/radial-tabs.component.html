@@ -2,7 +2,7 @@
   <div class="wrap" [ngClass]="{ 
     'is-open-about': activeTab === 'about', 
     'is-open-studies': activeTab === 'studies',
-    'is-open-projects': activeTab === 'projects',
+    'is-open-experience': activeTab === 'experience',
     'is-open-contact': activeTab === 'contact'
     }">
 
@@ -25,12 +25,12 @@
     </a>
 
     <!-- Abajo izquierda  -->
-    <a class="down-span" (click)="openTab('projects')"
-    (mouseover)="focusTab('projects')" 
+    <a class="down-span" (click)="openTab('experience')"
+    (mouseover)="focusTab('experience')" 
     (mouseout)="focusTab(null)"
-    [style.--halo-opacity]="focusedTab === 'projects' ? 0.35 : 0.65">
+    [style.--halo-opacity]="focusedTab === 'experience' ? 0.35 : 0.65">
       <div></div>
-      <span>Projects</span>
+      <span>Experience</span>
     </a>
 
     <!-- Ariba derecha -->
@@ -51,7 +51,7 @@
   </div>
 
   <app-left-panel
-  [visible]="activeTab === 'about'|| activeTab ==='projects'"
+  [visible]="activeTab === 'about'|| activeTab ==='experience'"
   [activeTab]="activeTab?.valueOf()"
   [pathImg]="getImagePath()"
   (close)="closeTab()">

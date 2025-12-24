@@ -6,15 +6,11 @@
 div {
   padding: 1rem;
   margin-bottom: 1rem;
-  background: rgb(59, 59, 59);
+  background: var(--color-subpanel-child-dark);
   border-radius: 8px;
   flex: 1;
   overflow: hidden; /* IMPORTANTE para animación */
   position: relative; /* para posicionar los textos */
-}
-
-h2, h4, h5 {
-  margin: 6px 0;
 }
 
 /* ———————————— */

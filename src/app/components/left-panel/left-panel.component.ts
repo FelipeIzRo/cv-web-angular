@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ExperiencePanelComponent } from "../experience-panel/experience-panel.component";
 
 @Component({
   selector: 'app-left-panel',
-  imports: [CommonModule],
+  imports: [CommonModule, ExperiencePanelComponent],
   templateUrl: './left-panel.component.html',
   styleUrl: './left-panel.component.css'
 })

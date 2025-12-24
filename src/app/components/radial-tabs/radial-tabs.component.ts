@@ -11,10 +11,10 @@ import { RightPanelComponent } from "../right-panel/right-panel.component";
   styleUrl: './radial-tabs.component.css'
 })
 export class RadialTabsComponent {
-  activeTab: 'about' | 'studies' | 'projects' | 'contact' | null = null;
-  focusedTab: 'about' | 'studies' | 'projects' | 'contact' | null = null;
+  activeTab: 'about' | 'studies' | 'experience' | 'contact' | null = null;
+  focusedTab: 'about' | 'studies' | 'experience' | 'contact' | null = null;
 
-  openTab(tab: 'about' | 'studies' | 'projects' | 'contact') {
+  openTab(tab: 'about' | 'studies' | 'experience' | 'contact') {
     this.activeTab = tab;
   }
 
@@ -22,7 +22,7 @@ export class RadialTabsComponent {
     this.activeTab = null;
   }
 
-  focusTab(tab: 'about' | 'studies' | 'projects' | 'contact' | null){
+  focusTab(tab: 'about' | 'studies' | 'experience' | 'contact' | null){
     this.focusedTab = tab;
   }
 
@@ -32,7 +32,7 @@ export class RadialTabsComponent {
       case 'about':
         // console.log('/assets/SobreMi.jpg')
         return '/assets/SobreMi.jpg'
-      case 'projects':
+      case 'experience':
         // console.log('/assets/Experiencia.jpg')
         return '/assets/Experiencia.jpg';
       case 'studies':
