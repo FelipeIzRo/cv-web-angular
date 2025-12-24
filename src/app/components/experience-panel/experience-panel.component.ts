@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { AccordionComponent } from "../accordion/accordion.component";
 
 @Component({
   selector: 'app-experience-panel',
-  imports: [CommonModule],
+  imports: [CommonModule, AccordionComponent],
   templateUrl: './experience-panel.component.html',
   styleUrl: './experience-panel.component.css'
 })

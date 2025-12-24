@@ -17,18 +17,13 @@
   <ng-container *ngIf="view === 'experience'">
     <div class="experience-detail">
       <button class="back-btn" (click)="selectView('menu')">← Volver</button>
+
         <!-- INDRA -->
-        <div class="detail-panel">
-            <div class="detail-header" (click)="togglePanel('indra')">
-                <h2>Desarrollador Full-Stack</h2>
-                <h4>Indra Sistemas</h4>
-                <h5>Octubre 2024 - ACTUALMENTE</h5>
-                <button class="accordion-btn" [class.open]="openPanels['indra']"></button>
-            </div>
-            <div class="detail-content" [class.open]="openPanels['indra']">
-                <div class="detail-inner">
-                    <p>
-                        El proyecto en el que actualmente trabajo es un sistema de mando y control,
+        <app-accordion
+        [title]="'Desarrollador Full-Stack'"
+        [secondTitle]="'Indra Sistemas'"
+        [thirdTitle]="'Octubre 2024 - ACTUALMENTE'"
+        content="El proyecto en el que actualmente trabajo es un sistema de mando y control,
                         encargado de gestionar recursos, publicar instrucciones y llevar un seguimiento de las acciones.
                         Ademas de comunicarse con otras plataformas con objetivos similares a nuestro sistema.
                         
@@ -41,24 +36,15 @@
                         
                         Implementar nuevas funcionalidades en un sistema programado en Java con mas de 15 años y consolidado.
                         Sin quebrar el funcionamiento de los sistemas ya 
-                        existentes y otros que estan en desarrollo y comparten servicios en común.
-                    </p>
-                </div>
-            </div>
-        </div>
-
+                        existentes y otros que estan en desarrollo y comparten servicios en común."
+        ></app-accordion>
+        
         <!-- MERCANZA -->
-        <div class="detail-panel">
-            <div class="detail-header" (click)="togglePanel('mercanza')">
-                <h2>Desarrollador Full-Stack</h2>
-                <h4>Mercanza</h4>
-                <h5>Septiembre 2023 - Diciembre 2023</h5>
-                <button class="accordion-btn" [class.open]="openPanels['mercanza']"></button>
-            </div>
-            <div class="detail-content" [class.open]="openPanels['mercanza']">
-                <div class="detail-inner">
-                    <p>
-                        Los proyectos en los que trabajé eran encargados de llevar el tratamiento 
+        <app-accordion
+        [title]="'Desarrollador Full-Stack'"
+        [secondTitle]="'Mercanza'"
+        [thirdTitle]="'Septiembre 2023 - Diciembre 2023'"
+        content="Los proyectos en los que trabajé eran encargados de llevar el tratamiento 
                         de datos personales y de negocio de diversas empresas con sus empleados o clientes.
                         
                         Estos proyectos usaban diferentes tecnologías pero en los que mas desarrollé
@@ -66,11 +52,8 @@
         
                         En estas aplicaciones web realicé sobre todo tareas
                         de resolución de incidencias, correción de componentes de interfaz gráfica y
-                        optimización de consultas a APIs y Bases de datos relaccionales.
-                    </p>
-                </div>
-            </div>
-        </div>
+                        optimización de consultas a APIs y Bases de datos relaccionales."
+        ></app-accordion>
     </div>
   </ng-container>
   
