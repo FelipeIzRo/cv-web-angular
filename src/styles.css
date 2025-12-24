@@ -3,3 +3,9 @@
     --color-subpanel-dark:rgb(34, 34, 34);
     --color-subpanel-child-dark:rgb(59, 59, 59);
 }
+p{
+    font-size: 18px;
+}
+h2, h4, h5 {
+  margin: 6px 0;
+}

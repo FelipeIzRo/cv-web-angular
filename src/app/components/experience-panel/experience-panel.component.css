@@ -52,8 +52,8 @@
 /* Vista detalle */
 .experience-detail {
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  /* max-width: 800px; */
+  /* margin: 0 auto; */
 }
 
 /* Botón volver */
@@ -87,11 +87,8 @@
 }
 .detail-header{
   background-color: var(--color-subpanel-child-dark);
+  padding: 1rem;
 }
 .detail-content{
-
-}
-
-h3,h4{
-    margin: 0;
+  padding: 1rem;
 }
