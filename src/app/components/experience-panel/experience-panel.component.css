@@ -129,7 +129,7 @@
 }
 
 .detail-content.open {
-  max-height: 2000px;
+  max-height: 500px;
   transition: max-height 1.0s ease-in; 
 }
 
