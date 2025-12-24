@@ -71,7 +71,7 @@
 
 /* Contenedor con scroll */
 .detail-scroll {
-  max-height: 320px;
+  max-height: 93%;
   overflow-y: auto;
   padding-right: 0.75rem;
 }
