@@ -21,11 +21,11 @@
 }
 
 .cluster.shift-right {
-    transform: translate(calc(-50% - 600px), -50%);
+    transform: translate(calc(-50% - 600px), -50%) scale(.6);
 }
 
 .cluster.shift-left {
-    transform: translate(calc(-50% + 600px), -50%);
+    transform: translate(calc(-50% + 600px), -50%) scale(.6);
 }
 
 .box {
