@@ -40,8 +40,8 @@ export class RadialTabsComponent {
         // console.log('assets/Estudios.jpg');
         return 'assets/Estudios.jpg';
       case 'contact':
-        // console.log('assets/Contacto.jpg');
-        return 'assets/Contacto.jpg';
+        // console.log('assets/Contacto.png');
+        return 'assets/Contacto.png';
       case null:
         return '';
       default:
