@@ -29,7 +29,6 @@
     transform-origin: center center;
     transform: translate(-50%, -50%) scale(0.2);
     opacity: 1;
-    /* transition: transform .5s, opacity .5s; */
     z-index: 1;
 
     transition: transform .9s ease,
@@ -143,13 +142,6 @@ a:nth-child(5) {
     width: 80vmin;
     height: 80vmin;
     border-radius: 50%;
-
-    /* ! Esto seria para poner la imagen */
-    /* background-image: url('../../../../assets//FotoPerfil.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
-
     transform-origin: center center;
     transform: translate(-50%, -50%) scale(1);
     transition: transform .5s;
@@ -180,25 +172,17 @@ span {
 
 
 .wrap.is-open-about {
-    left: 80%;
-    top: 50%;
-    transform: translate(-46%, -50%) scale(0.2);
+    transform: translate(-18%, -50%) scale(0.2);
 }
 
 .wrap.is-open-studies {
-    left: 20%;
-    top: 50%;
-    transform: translate(-54%, -50%) scale(0.2);
+    transform: translate(-83%, -50%) scale(0.2);
 }
 
 .wrap.is-open-experience {
-    left: 80%;
-    top: 50%;
-    transform: translate(-46%, -50%) scale(0.2);
+    transform: translate(-18%, -50%) scale(0.2);
 }
 
 .wrap.is-open-contact {
-    left: 20%;
-    top: 50%;
-    transform: translate(-54%, -50%) scale(0.2);
+    transform: translate(-83%, -50%) scale(0.2);
 }
