@@ -84,7 +84,8 @@
 
 .cell {
     position: relative;
-    /* 👈 clave */
+    font-family: var(--font-title);
+    font-weight:bold;
     background-size: 100% 100%;
     text-align: center;
     overflow: hidden;
@@ -110,8 +111,10 @@
     left: 0;
     right: 0;
 
+    -webkit-text-stroke: 1px black;
+    text-shadow: 2px 2px 4px #000000;
     color: white;
-    font-size: 40px;
+    font-size: 50px;
     pointer-events: none;
 }
 
