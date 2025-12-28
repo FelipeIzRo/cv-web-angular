@@ -1,0 +1,82 @@
+
+.card{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    background-color: rgb(237, 237, 237);
+    border-radius: 5px;
+    cursor: pointer;
+    /* overflow: hidden; */
+    transform: translate(0%,0%);
+    transition: transform .5s ease;
+    z-index: 2;
+}
+
+.sello{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: crimson;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.solapa{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(237, 237, 237);
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transform-origin: top center;
+    transform: rotateX(0deg);
+    transition: transform 0.6s ease;
+    z-index: 3;
+}
+
+.borde{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transform: translateY(1%);
+    z-index: 0;
+}
+.card.abierta .solapa{
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.card.abierta .sello{
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+.card.abierta .papel{
+    transform: translateY(-20%);
+    transition-delay: 0.4s;
+}
+.card.abierta{
+    transform: translate(0%,90%);
+}
+.papel{
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 160%;
+    background-color: rgb(222, 6, 6);
+    border-radius: 3px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
+
+    transform: translateY(100%);
+    transition: transform 0.6s ease;
+    z-index: 1;
+}

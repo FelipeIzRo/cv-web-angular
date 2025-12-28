@@ -3,6 +3,7 @@
     <button class="close-btn" (click)="onClose()">✕</button>
     <div *ngIf="activeTab === 'about'"></div>
     <app-experience-panel *ngIf="activeTab === 'experience'"></app-experience-panel>
+    <app-about-panel *ngIf="activeTab === 'about'"></app-about-panel>
   </div>
 </div>
 <div class="tab-image" [class.is-visible]="visible" [style.background-image]="'url(' + pathImg + ')'">
