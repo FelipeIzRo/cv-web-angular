@@ -1,13 +1,40 @@
-:root {
-    --color-panel-dark:rgba(15, 15, 20, 0.98);
-    --color-subpanel-dark:rgb(34, 34, 34);
-    --color-subpanel-child-dark:rgb(59, 59, 59);
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&display=swap');
 
-    --color-selected-dark:rgb(98, 98, 98);
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
 }
-p{
-    font-size: 18px;
+
+:root {
+
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-title: 'IBM Plex Serif', serif;
+  --font-ui-accent: 'Fraunces', serif;
+
+  
+  --color-panel-dark: rgba(15, 15, 20, 0.98);
+  --color-subpanel-dark: rgb(34, 34, 34);
+  --color-subpanel-child-dark: rgb(59, 59, 59);
+
+  --color-selected-dark: rgb(98, 98, 98);
+
+  --color-card: rgb(219, 217, 217);
+  --color-paper-card: rgb(237, 237, 237)
 }
-h2, h4, h5 {
+
+p {
+  font-size: 18px;
+}
+
+h2,
+h4,
+h5 {
   margin: 6px 0;
+  font-family: var(--font-title);
 }
