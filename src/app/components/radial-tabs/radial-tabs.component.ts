@@ -7,14 +7,15 @@ import { RightPanelComponent } from "../right-panel/right-panel.component";
 @Component({
   selector: 'app-radial-tabs',
   imports: [CommonModule, LeftPanelComponent, RightPanelComponent],
-  templateUrl: './radial-tabs.component.html',
-  styleUrl: './radial-tabs.component.css'
+  templateUrl: './radial-tabs-refactor.component.html',
+  styleUrl: './radial-tabs-refactor.component.css'
 })
 export class RadialTabsComponent {
   activeTab: 'about' | 'studies' | 'experience' | 'contact' | null = null;
   focusedTab: 'about' | 'studies' | 'experience' | 'contact' | null = null;
 
   openTab(tab: 'about' | 'studies' | 'experience' | 'contact') {
+    console.log('clicked: ',tab);
     this.activeTab = tab;
   }
 

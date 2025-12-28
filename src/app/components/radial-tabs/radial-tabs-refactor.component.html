@@ -1,0 +1,31 @@
+<div class="stage">
+  <div class="cluster" 
+  [class.shift-left]="activeTab === 'about' || activeTab === 'experience'"
+  [class.shift-right]="activeTab === 'contact' || activeTab === 'studies'"
+  >
+
+    <div class="box"></div>
+
+    <div class="item">
+      <div class="cell c1" (click)="openTab('about')">About</div>
+      <div class="cell c2" (click)="openTab('studies')">Studies</div>
+      <div class="cell c3" (click)="openTab('experience')">Experience</div>
+      <div class="cell c4" (click)="openTab('contact')">Contact</div>
+    </div>
+  </div>
+
+  <app-left-panel
+  [visible]="activeTab === 'about'|| activeTab ==='experience'"
+  [activeTab]="activeTab?.valueOf()"
+  [pathImg]="getImagePath()"
+  (close)="closeTab()">
+  </app-left-panel>
+
+  <app-right-panel
+  [visible]="activeTab === 'studies'|| activeTab ==='contact'"
+  [activeTab]="activeTab?.valueOf()"
+  (close)="closeTab()"
+  [pathImg]="getImagePath()"
+  >
+  </app-right-panel>
+</div>
