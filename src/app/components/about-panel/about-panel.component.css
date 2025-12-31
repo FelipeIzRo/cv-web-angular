@@ -81,3 +81,12 @@
     height: 100%;
     object-fit: contain
 }
+.download-btn.disabled {
+  opacity: 0.35;          /* oscurecido elegante */
+  filter: grayscale(1);  /* refuerza que no está activo */
+  cursor: default;
+}
+
+.download-btn:disabled {
+  pointer-events: none;
+}

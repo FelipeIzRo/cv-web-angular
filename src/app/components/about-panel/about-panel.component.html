@@ -10,7 +10,10 @@
         <div class="buttons">
             <button (click)="previous()"><img src="assets/FlechaIzquierda.png" alt="Anterior"></button>
             <div class="title">{{ title }}</div>
-            <button (click)="downloadCV()"><img src="assets/Download.png" alt="Descargar"></button>
+            <button class="download-btn" [disabled]="content === 'personal-info'"
+                [class.disabled]="content === 'personal-info'" (click)="downloadCV()">
+                <img src="assets/Download.png" alt="Descargar">
+            </button>
             <button (click)="next()"><img src="assets/FlechaDerecha.png" alt="Siguiente"></button>
         </div>
     </div>

@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class CurriculumComponent {
 
+  openPdf() {
+    window.open('assets/NEW_CurriculumAzul.pdf', '_blank');
+  }
+
 }
