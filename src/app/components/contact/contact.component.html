@@ -1,0 +1,15 @@
+<h1>Contacto</h1>
+
+<form [formGroup]="emailForm">
+
+    <label>Nombre</label>
+    <input type="text" #name><br>
+
+    <label>Email</label>
+    <input type="email" #email><br>
+
+    <label>Message</label>
+    <textarea type="text" #message rows="6" style="width:60%;"></textarea><br>
+
+    <button type="button" (click)="sendEmail(name.value, email.value, message.value)">Send</button>
+</form>

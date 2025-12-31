@@ -4,7 +4,7 @@
 
     <app-studies-panel class="studies-wrapper" *ngIf="activeTab === 'studies'"></app-studies-panel>
 
-    <div *ngIf="activeTab === 'contact'"></div>
+    <app-contact *ngIf="activeTab === 'contact'"></app-contact>
   </div>
 </div>
 <div class="tab-image" [class.is-visible]="visible" [style.background-image]="'url(' + pathImg + ')'">
