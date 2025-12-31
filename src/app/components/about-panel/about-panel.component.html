@@ -1,51 +1,21 @@
-<div class="card" [class.abierta]="abierta" (click)="toggleCarta()">
+<div class="about-container">
+    <!-- <div class="title">{{ title }}</div> -->
 
-    <div class="interior"></div>
-    <div class="borde"></div>
-    <div class="solapa"></div>
-    <!-- <div class="sello">
-        <img src="assets/Sello-Rojo.png" alt="">
-    </div> -->
-    <div class="papel">
-        <div class="contenido-carta">
-
-            <!-- <img class="foto-perfil" src="assets/FotoPerfil.png" alt="Foto de Felipe Izquierdo" /> -->
-
-            <div class="texto-carta">
-                <p><strong>Me llamo Felipe Izquierdo Romero.</strong></p>
-
-                <p>
-                    Soy desarrollador <strong>Full-Stack</strong> especializado en
-                    <strong>Java, Spring Boot y Angular</strong>.
-                </p>
-
-                <p>
-                    Desarrollo aplicaciones para <strong>Web y Android</strong> con el objetivo
-                    principal de la <strong>escalabilidad</strong> y la <strong>sostenibilidad</strong>.
-                    Concentro mi trabajo en crear buenas estructuras y aplicar
-                    buenas prácticas de programación.
-                </p>
-
-                <p>
-                    Me encanta trabajar en equipo para buscar soluciones a los problemas
-                    que surgen al desarrollar nuevas funcionalidades.
-                </p>
-
-                <h4>¿Por qué debo ser su elección?</h4>
-
-                <ul>
-                    <li>Analítico</li>
-                    <li>Resolutivo</li>
-                    <li>Ordenado</li>
-                    <li>Comunicativo</li>
-                    <li>Implicado</li>
-                    <li>Enérgico</li>
-                </ul>
-            </div>
-
+    <div class="content-container">
+        <div class="content">
+            <app-personal-info class="correct-translate" *ngIf="content === 'personal-info'"></app-personal-info>
+            <app-card *ngIf="content === 'card'"></app-card>
+            <app-curriculum class="correct-translate" *ngIf="content === 'curriculum'"></app-curriculum>
+        </div>
+        <div class="buttons">
+            <button (click)="previous()"><img src="assets/FlechaIzquierda.png" alt="Anterior"></button>
+            <div class="title">{{ title }}</div>
+            <button class="download-btn" [disabled]="content === 'personal-info'"
+                [class.disabled]="content === 'personal-info'" (click)="downloadCV()">
+                <img src="assets/Download.png" alt="Descargar">
+            </button>
+            <button (click)="next()"><img src="assets/FlechaDerecha.png" alt="Siguiente"></button>
         </div>
     </div>
-
-    <div class="cuerpo-sobre"></div>
 
 </div>
