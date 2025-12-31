@@ -1,8 +1,16 @@
-<div class="title">
-    {{title}}
-</div>
 <div class="about-container">
-    <app-personal-info *ngIf="content === 'personal-info'"></app-personal-info>
-    <app-card *ngIf="content === 'card'"></app-card>
-    <app-curriculum *ngIf="content === 'curriculum'"></app-curriculum>
+    <div class="title">
+        {{ title }}
+    </div>
+
+    <div class="content">
+        <app-personal-info *ngIf="content === 'personal-info'"></app-personal-info>
+        <app-card *ngIf="content === 'card'"></app-card>
+        <app-curriculum *ngIf="content === 'curriculum'"></app-curriculum>
+    </div>
+
+    <div class="buttons">
+        <button (click)="previous()">&larr;</button>
+        <button (click)="next()">&rarr;</button>
+    </div>
 </div>
