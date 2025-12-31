@@ -11,6 +11,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 // Opcional si usas Analytics:
 import { provideAnalytics, getAnalytics } from '@angular/fire/analytics';
 import { environment } from './environments/environment';
+import { provideHttpClient } from '@angular/common/http';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -21,5 +22,6 @@ bootstrapApplication(AppComponent, {
     provideAuth(() => getAuth()),
     // Quita esta línea si no necesitas Analytics
     provideAnalytics(() => getAnalytics()),
+    provideHttpClient(),
   ],
 }).catch(err => console.error(err));

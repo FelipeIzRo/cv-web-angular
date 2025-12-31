@@ -1,0 +1,33 @@
+<div class="contact-container">
+
+  <form [formGroup]="emailForm" class="contact-form">
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" #name placeholder="Entidad">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" #email placeholder="tu-entidad@email.com">
+    </div>
+
+    <div class="form-group">
+      <label>Mensaje</label>
+      <textarea
+        #message
+        rows="6"
+        placeholder="Escribe tu mensaje aquí..."
+      ></textarea>
+    </div>
+
+    <button
+      type="button"
+      class="submit-btn"
+      (click)="sendEmail(name.value, email.value, message.value)"
+    >
+      Enviar mensaje
+    </button>
+
+  </form>
+</div>
