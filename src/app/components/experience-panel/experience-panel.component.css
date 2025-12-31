@@ -8,6 +8,7 @@
   margin: 0 auto;
   align-items: stretch;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 /* Tarjetas base */
@@ -99,6 +100,16 @@
   .experience-card {
     flex: 1 1 100%;
     min-height: 180px;
+    text-align: center;
+    padding: clamp(16px, 5vw, 22px);
+  }
+
+  .experience-card h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .experience-card p {
+    text-align: center;
   }
 }
 

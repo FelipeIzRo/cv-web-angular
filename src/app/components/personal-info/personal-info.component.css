@@ -71,3 +71,28 @@
     background: rgb(237, 200, 136);
     border-radius: 12px;
 }
+
+@media (max-width: 720px) {
+    .padre {
+        gap: clamp(12px, 4vw, 20px);
+        padding: clamp(14px, 4vw, 20px);
+    }
+
+    .business-card {
+        flex-direction: column;
+        gap: clamp(10px, 3vw, 18px);
+    }
+
+    .info h1 {
+        font-size: clamp(1.1rem, 5vw, 1.35rem);
+    }
+
+    .info h2,
+    .contact {
+        text-align: center;
+    }
+
+    .contact {
+        font-size: clamp(0.9rem, 3.6vw, 1rem);
+    }
+}

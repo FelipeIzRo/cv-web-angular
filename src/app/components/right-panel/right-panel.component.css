@@ -132,3 +132,10 @@
     display: none;
   }
 }
+
+@media (max-width: 720px) {
+  .tab-panel-inner {
+    padding: clamp(14px, 5vw, 20px);
+    gap: clamp(10px, 3vw, 14px);
+  }
+}
