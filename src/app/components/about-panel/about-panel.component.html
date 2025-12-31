@@ -4,9 +4,9 @@
     </div>
 
     <div class="content">
-        <app-personal-info *ngIf="content === 'personal-info'"></app-personal-info>
+        <app-personal-info class="correct-translate" *ngIf="content === 'personal-info'"></app-personal-info>
         <app-card *ngIf="content === 'card'"></app-card>
-        <app-curriculum *ngIf="content === 'curriculum'"></app-curriculum>
+        <app-curriculum class="correct-translate" *ngIf="content === 'curriculum'"></app-curriculum>
     </div>
 
     <div class="buttons">
