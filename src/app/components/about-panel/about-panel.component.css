@@ -7,33 +7,42 @@
     align-items: center;
 
     justify-content: center;
-    gap: 20px;
+    gap: clamp(12px, 3vw, 20px);
 
-    padding: 4vmin 0;
+    padding: clamp(16px, 4vw, 32px) 0;
     box-sizing: border-box;
 
     /* background: var(--color-subpanel-dark); */
     border-radius: 12px;
 }
+
 .content-container{
-    width: 73%;
-    height: 84%;
+    width: min(960px, 100%);
+    flex: 1;
+    max-height: 100%;
     background: var(--color-subpanel-child-dark);
     border-radius: 12px;
     
-    gap: 5px;
-    place-content: center;
-    justify-items:center;
+    gap: clamp(12px, 2vw, 18px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(12px, 2vw, 20px);
+    box-sizing: border-box;
+    overflow: hidden;
 }
+
 /* Título */
 .title {
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
 }
 
 /* Contenido central */
 .content {
-    width: 95vmin;
-    height: 50vmin;
+    width: 100%;
+    max-width: 960px;
+    height: min(clamp(320px, 58vh, 520px), 100%);
 
     display: flex;
     align-items: center;
@@ -52,22 +61,25 @@
 /* Botones */
 .buttons {
     display: flex;
-    width: 95vmin;
+    width: 100%;
+    max-width: 960px;
+    padding: clamp(12px, 2vw, 16px);
     align-items: center;
     background: var(--color-subpanel-dark);
     border-radius: 9px;
-    margin-top: 18px;
+    margin-top: clamp(12px, 2vw, 18px);
+    gap: clamp(10px, 2vw, 16px);
 
 }
 .buttons .title {
-  flex: 1;                 /* 👈 ocupa todo el espacio disponible */
+  flex: 1;                 /* 胑'^ ocupa todo el espacio disponible */
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
   pointer-events: none;
 }
 .buttons button {
-    width: 60px;
-    height: 60px;
+    width: clamp(44px, 7vw, 60px);
+    height: clamp(44px, 7vw, 60px);
 
     padding: 0;
 

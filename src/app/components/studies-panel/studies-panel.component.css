@@ -1,21 +1,23 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2.4vw, 18px);
   width: 100%;
+  height: 100%;
 }
 
 div {
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: clamp(12px, 2.6vw, 18px);
   background: var(--color-subpanel-child-dark);
-  border-radius: 8px;
+  border-radius: 10px;
   flex: 1;
   overflow: hidden; /* IMPORTANTE para animación */
   position: relative; /* para posicionar los textos */
+  min-height: 140px;
+  box-sizing: border-box;
 }
 
-/* ———————————— */
-/* ANIMACIÓN SOLO CSS */
-/* ———————————— */
+/* Animación solo CSS */
 
 /* Ambos textos se apilan uno sobre otro */
 .text {

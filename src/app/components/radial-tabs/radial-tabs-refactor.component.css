@@ -1,31 +1,60 @@
-/* Contenedor principal */
+:host {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 100%;
+
+    --frame-padding: var(--viewport-padding, clamp(12px, 3vw, 32px));
+    --frame-max-width: 1280px;
+    --frame-max-height: 900px;
+    --panel-image-width: clamp(140px, 26vw, 320px);
+    --panel-gap: clamp(12px, 3vw, 32px);
+    --panel-available: calc(100vw - var(--frame-padding) * 2 - var(--panel-image-width) - var(--panel-gap));
+    --panel-width: min(clamp(260px, 72vw, 880px), var(--panel-available));
+    --cluster-size: clamp(180px, 42vmin, 360px);
+    --orbit-size: clamp(280px, 72vmin, 540px);
+    --cluster-scale: 0.72;
+    --cluster-shift: min(calc(var(--panel-width) * 0.5), 38vw);
+}
+
 .stage {
-    position: fixed;
-    inset: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
 
     display: grid;
     place-items: center;
+    overflow: hidden;
+    isolation: isolate;
+}
 
-    background: transparent;
+@supports not (height: 100dvh) {
+    .stage {
+        height: 100%;
+    }
 }
 
 .cluster {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%);
-    z-index: 10;
+    width: var(--cluster-size);
+    height: var(--cluster-size);
 
-    transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    transition: transform 1s cubic-bezier(.22, 1, .36, 1);
+    will-change: transform;
 }
 
 .cluster.shift-right {
-    transform: translate(-78vmin) scale(.6);
+    transform: translate(calc(-50% - var(--cluster-shift)), -50%) scale(var(--cluster-scale));
 }
 
 .cluster.shift-left {
-    transform: translate(78vmin) scale(.6);
+    transform: translate(calc(-50% + var(--cluster-shift)), -50%) scale(var(--cluster-scale));
 }
 
 .box {
@@ -33,16 +62,16 @@
     top: 50%;
     left: 50%;
 
-    width: 25vmin;
-    height: 25vmin;
+    width: clamp(120px, 22vmin, 240px);
+    height: clamp(120px, 22vmin, 240px);
 
-    border-radius: 40px;
+    border-radius: 32px;
     background: black;
 
     transform: translate(-50%, -50%);
     cursor: pointer;
     z-index: 2;
-    transition: transform 0.4s ease;
+    transition: transform 0.35s ease;
 }
 
 .item {
@@ -50,30 +79,24 @@
     top: 50%;
     left: 50%;
 
-    width: 95vmin;
-    height: 95vmin;
+    width: var(--orbit-size);
+    height: var(--orbit-size);
     border-radius: 60px;
 
-    background: rgb(38, 116, 184);
-
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    /* gap: 20px; */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 
     background: transparent;
-    padding: 30px;
+    padding: clamp(12px, 2vw, 26px);
 
-    transform: translate(-50%, -50%) scale(.2) translateZ(0);
-    transition: transform 0.4s ease;
+    transform: translate(-50%, -50%) scale(.25) translateZ(0);
+    transition: transform 0.35s ease;
 
     will-change: transform;
 }
 
-.box:hover {
-    transform: translate(-50%, -50%) scale(2);
-}
-
+.box:hover,
 .cluster:hover .box {
     transform: translate(-50%, -50%) scale(2);
 }
@@ -86,17 +109,21 @@
     position: relative;
     font-family: var(--font-title);
     font-weight:bold;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
     text-align: center;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
 }
 .cell::before {
     content: '';
     position: absolute;
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.45); /* 👈 sombra inicial */
+    background: rgba(0, 0, 0, 0.45);
     transition: background 0.3s ease;
 
     z-index: 1;
@@ -105,32 +132,28 @@
     background: rgba(0, 0, 0, 0.1);
 }
 .cell-title {
-    position: absolute;
+    position: relative;
     z-index: 2;
-
-    left: 0;
-    right: 0;
 
     -webkit-text-stroke: 1px black;
     text-shadow: 2px 2px 4px #000000;
     color: white;
-    font-size: 7vmin;
+    font-size: clamp(1.4rem, 4vw, 3.4rem);
     pointer-events: none;
+    letter-spacing: 0.08em;
 }
 
 
 .c3 .cell-title,
 .c4 .cell-title {
-    top: auto;
-    bottom: 40px;
-    transform: none;
+    margin-top: auto;
+    margin-bottom: clamp(18px, 3vw, 40px);
 }
 
 .c1 .cell-title,
 .c2 .cell-title {
-    top: 40px;
-    bottom: auto;
-    transform: none;
+    margin-bottom: auto;
+    margin-top: clamp(18px, 3vw, 40px);
 }
 
 /* Colores */
@@ -152,4 +175,14 @@
 .c4 {
     background-image: url('../../../../assets/Contacto.png');
     border-radius: 20px 0;
+}
+
+@media (hover: none) {
+    .item {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .box {
+        transform: translate(-50%, -50%) scale(1.4);
+    }
 }
