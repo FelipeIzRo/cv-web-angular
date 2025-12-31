@@ -5,9 +5,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 
-    gap: 2vmin; /* separación natural */
+    justify-content: center;
+    gap: 20px;
+
+    padding: 4vmin 0;
+    box-sizing: border-box;
 }
 
 /* Título */
@@ -15,17 +18,16 @@
     font-size: 2rem;
 }
 
-/* Zona central (app-card, app-personal-info, etc.) */
+/* Contenido central */
 .content {
-    width: 95vmin;     /* aquí mandas tú */
-    height: 50vmin;    /* aquí mandas tú */
+    width: 95vmin;
+    height: 50vmin;
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Para que los componentes ocupen el contenedor */
 .content > * {
     width: 100%;
     height: 100%;
