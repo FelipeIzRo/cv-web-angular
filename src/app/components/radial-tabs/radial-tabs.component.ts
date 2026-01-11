@@ -28,7 +28,7 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
   private lastAngle = 0;
 
   currentSection = 'studies';
-
+  private running = true;
 
   sections: ClockSection[] = [
     {
@@ -49,6 +49,11 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
     }
   ];
 
+get visibleSection(): string {
+  return this.activeTab ?? this.currentSection;
+}
+
+
   ngOnInit() {
     this.start = performance.now();
     this.loop();
@@ -59,17 +64,16 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
   }
 
   private loop = () => {
+    if (!this.running) return;
+
     const now = performance.now();
     const elapsed = (now - this.start) % this.duration;
 
     this.angle = (elapsed / this.duration) * 360;
-
     this.checkMilestones();
 
     this.rafId = requestAnimationFrame(this.loop);
   };
-
-
 
   private checkMilestones() {
     for (const section of this.sections) {
@@ -98,13 +102,26 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
 
 
   openTab(tab: 'about' | 'studies' | 'experience' | 'contact') {
-    console.log('clicked: ', tab);
+    // console.log('clicked: ', tab);
     this.activeTab = tab;
+    this.stopClock();
   }
 
   closeTab() {
     this.activeTab = null;
+    this.resumeClock();
   }
+  private stopClock() {
+    this.running = false;
+    cancelAnimationFrame(this.rafId);
+  }
+  private resumeClock() {
+    this.start = performance.now(); // reinicia el tiempo
+    this.lastAngle = this.angle;    // evita falsos cruces
+    this.running = true;
+    this.loop();
+  }
+
 
   focusTab(tab: 'about' | 'studies' | 'experience' | 'contact' | null) {
     this.focusedTab = tab;

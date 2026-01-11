@@ -11,10 +11,10 @@
     </div>
 
     <div class="item">
-      <div class="cell c1" [class.current-section]="currentSection === 'about'" (click)="openTab('about')"><span class="cell-title">ABOUT</span></div>
-      <div class="cell c2" [class.current-section]="currentSection === 'studies'" (click)="openTab('studies')"><span class="cell-title">STUDIES</span></div>
-      <div class="cell c3" [class.current-section]="currentSection === 'experience'" (click)="openTab('experience')"><span class="cell-title">EXPERIENCE</span></div>
-      <div class="cell c4" [class.current-section]="currentSection === 'contact'" (click)="openTab('contact')"><span class="cell-title">CONTACT</span></div>
+      <div class="cell c1" [class.current-section]="visibleSection === 'about'" (click)="openTab('about')"><span class="cell-title">ABOUT</span></div>
+      <div class="cell c2" [class.current-section]="visibleSection === 'studies'" (click)="openTab('studies')"><span class="cell-title">STUDIES</span></div>
+      <div class="cell c3" [class.current-section]="visibleSection === 'experience'" (click)="openTab('experience')"><span class="cell-title">EXPERIENCE</span></div>
+      <div class="cell c4" [class.current-section]="visibleSection === 'contact'" (click)="openTab('contact')"><span class="cell-title">CONTACT</span></div>
     </div>
   </div>
 
