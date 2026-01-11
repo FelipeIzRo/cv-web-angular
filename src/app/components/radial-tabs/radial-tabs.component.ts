@@ -49,9 +49,9 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
     }
   ];
 
-get visibleSection(): string {
-  return this.activeTab ?? this.currentSection;
-}
+  get visibleSection(): string {
+    return this.activeTab ?? this.currentSection;
+  }
 
 
   ngOnInit() {
@@ -102,7 +102,7 @@ get visibleSection(): string {
 
 
   openTab(tab: 'about' | 'studies' | 'experience' | 'contact') {
-    // console.log('clicked: ', tab);
+    this.clockText = tab.charAt(0).toUpperCase().concat(tab.substring(1));
     this.activeTab = tab;
     this.stopClock();
   }
@@ -110,6 +110,7 @@ get visibleSection(): string {
   closeTab() {
     this.activeTab = null;
     this.resumeClock();
+    this.clockText = 'Sigamos';
   }
   private stopClock() {
     this.running = false;
@@ -132,22 +133,18 @@ get visibleSection(): string {
     switch (this.activeTab) {
       case 'about':
         // console.log('assets/SobreMi.jpg')
-        this.clockText = 'About';
         return 'assets/SobreMi.jpg'
       case 'experience':
-        this.clockText = 'Experience';
         // console.log('assets/Experiencia.jpg')
         return 'assets/Experiencia.jpg';
       case 'studies':
-        this.clockText = 'Studies';
         // console.log('assets/Estudios.jpg');
         return 'assets/Estudios.jpg';
       case 'contact':
-        this.clockText = 'Contact';
         // console.log('assets/Contacto.png');
         return 'assets/Contacto.png';
       case null:
-        return 'Comencemos';
+        return '';
       default:
         return '';
     }
