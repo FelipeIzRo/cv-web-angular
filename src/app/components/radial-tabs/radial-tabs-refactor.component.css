@@ -1,12 +1,32 @@
-/* Contenedor principal */
 .stage {
+
     position: fixed;
     inset: 0;
 
     display: grid;
     place-items: center;
 
-    background: transparent;
+    transition: background 0.8s ease;
+    background-size: cover;
+    background-position: center;
+
+}
+
+/* Secciones */
+.stage.about {
+    background-image: url('../../../../assets/SobreMi.jpg');
+}
+
+.stage.studies {
+    background-image: url('../../../../assets/Estudios.jpg');
+}
+
+.stage.experience {
+    background-image: url('../../../../assets/Experiencia.jpg');
+}
+
+.stage.contact {
+    background-image: url('../../../../assets/Contacto.png');
 }
 
 .cluster {
@@ -18,31 +38,15 @@
     z-index: 10;
 
     transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
+
 }
 
 .cluster.shift-right {
-    transform: translate(-78vmin) scale(.6);
+    transform: translate(-92vmin, -15vmin) scale(.6);
 }
 
 .cluster.shift-left {
-    transform: translate(78vmin) scale(.6);
-}
-
-.box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 25vmin;
-    height: 25vmin;
-
-    border-radius: 40px;
-    background: black;
-
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    z-index: 2;
-    transition: transform 0.4s ease;
+    transform: translate(63vmin, -15vmin) scale(.6);
 }
 
 .item {
@@ -64,18 +68,10 @@
     background: transparent;
     padding: 30px;
 
-    transform: translate(-50%, -50%) scale(.2) translateZ(0);
+    transform: translate(-50%, -50%) scale(.7) translateZ(0);
     transition: transform 0.4s ease;
 
     will-change: transform;
-}
-
-.box:hover {
-    transform: translate(-50%, -50%) scale(2);
-}
-
-.cluster:hover .box {
-    transform: translate(-50%, -50%) scale(2);
 }
 
 .cluster:hover .item {
@@ -85,25 +81,34 @@
 .cell {
     position: relative;
     font-family: var(--font-title);
-    font-weight:bold;
+    font-weight: bold;
     background-size: 100% 100%;
     text-align: center;
     overflow: hidden;
     cursor: pointer;
+    border-style: solid;
+    border-color: rgba(37, 37, 37, 0.938);
 }
+
 .cell::before {
     content: '';
     position: absolute;
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.45); /* 👈 sombra inicial */
+    background: rgba(0, 0, 0, 0.65);
+    /* 👈 sombra inicial */
     transition: background 0.3s ease;
 
     z-index: 1;
 }
+
 .cell:hover::before {
     background: rgba(0, 0, 0, 0.1);
 }
+.cell.current-section::before {
+    background: rgba(0, 0, 0, 0.1);
+}
+
 .cell-title {
     position: absolute;
     z-index: 2;
@@ -137,19 +142,87 @@
 .c1 {
     background-image: url('../../../../assets/SobreMi.jpg');
     border-radius: 20px 0;
+    border-width: 5px 1px 1px 5px; 
 }
 
 .c2 {
     background-image: url('../../../../assets/Estudios.jpg');
     border-radius: 0 20px;
+    border-width: 5px 5px 1px 1px; 
 }
 
 .c3 {
     background-image: url('../../../../assets/Experiencia.jpg');
     border-radius: 0 20px;
+    border-width: 1px 1px 5px 5px; 
 }
 
 .c4 {
     background-image: url('../../../../assets/Contacto.png');
     border-radius: 20px 0;
+    border-width: 1px 5px 5px 1px; 
+}
+
+.clock {
+    z-index: 2;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 40px;
+    background: #222;
+    overflow: hidden;
+    justify-items: center;
+
+}
+
+.clock.hidden .trail {
+    opacity: 0;
+}
+
+.clock.hidden .hand {
+    opacity: 0;
+}
+
+
+
+/* ESTELA */
+.trail {
+    position: absolute;
+    inset: -50%;
+    border-radius: 50%;
+
+    background: conic-gradient(
+            from 0deg,
+            rgb(0, 0, 0) 0deg,
+            rgb(48, 48, 48) 360deg);
+
+    transform: rotate(var(--angle));
+}
+.clock-text{
+    position: absolute;
+    color: white;
+    z-index: 4;
+    top: 35%;
+    text-align: center;
+    /* top: 40%;
+    left: 25%; */
+    font-family: var(--font-title);
+    font-size: 30px;
+}
+.rotator {
+    position: absolute;
+    inset: 0;
+    transform: rotate(var(--angle));
+}
+
+
+.hand {
+    position: absolute;
+    width: 2px;
+    height: 150%;
+    background: rgba(109, 109, 109);
+
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
 }
