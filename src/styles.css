@@ -18,7 +18,7 @@ body {
   --font-ui-accent: 'Fraunces', serif;
 
   
-  --color-panel-dark: rgba(15, 15, 20, 0.98);
+  --color-panel-dark: rgb(15, 15, 20);
   --color-subpanel-dark: rgb(34, 34, 34);
   --color-subpanel-child-dark: rgb(59, 59, 59);
 

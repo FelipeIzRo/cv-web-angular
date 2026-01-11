@@ -1,23 +1,14 @@
-<div class="stage">
-  <div class="cluster" 
-  [class.shift-left]="activeTab === 'about' || activeTab === 'experience'"
-  [class.shift-right]="activeTab === 'contact' || activeTab === 'studies'"
-  >
+<div class="stage" [ngClass]="currentSection">
+  <div class="cluster" [class.shift-left]="activeTab === 'about' || activeTab === 'experience'"
+    [class.shift-right]="activeTab === 'contact' || activeTab === 'studies'">
 
-<div
-  class="clock"
-  [style.--angle]="angle + 'deg'"
->
-  <div class="trail"></div>
-
-  <div class="rotator">
-    <div class="hand"></div>
-  </div>
-</div>
-
-
-
-
+    <div class="clock" [class.hidden]="activeTab !== null" [style.--angle]="angle + 'deg'">
+      <div class="clock-text">{{clockText}}</div>
+      <div class="trail"></div>
+      <div class="rotator">
+        <div class="hand"></div>
+      </div>
+    </div>
 
     <div class="item">
       <div class="cell c1" (click)="openTab('about')"><span class="cell-title">ABOUT</span></div>
@@ -27,18 +18,11 @@
     </div>
   </div>
 
-  <app-left-panel
-  [visible]="activeTab === 'about'|| activeTab ==='experience'"
-  [activeTab]="activeTab?.valueOf()"
-  [pathImg]="getImagePath()"
-  (close)="closeTab()">
+  <app-left-panel [visible]="activeTab === 'about'|| activeTab ==='experience'" [activeTab]="activeTab?.valueOf()"
+    [pathImg]="getImagePath()" (close)="closeTab()">
   </app-left-panel>
 
-  <app-right-panel
-  [visible]="activeTab === 'studies'|| activeTab ==='contact'"
-  [activeTab]="activeTab?.valueOf()"
-  (close)="closeTab()"
-  [pathImg]="getImagePath()"
-  >
+  <app-right-panel [visible]="activeTab === 'studies'|| activeTab ==='contact'" [activeTab]="activeTab?.valueOf()"
+    (close)="closeTab()" [pathImg]="getImagePath()">
   </app-right-panel>
 </div>

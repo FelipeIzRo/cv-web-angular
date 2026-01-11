@@ -1,12 +1,31 @@
-/* Contenedor principal */
 .stage {
+
     position: fixed;
     inset: 0;
 
     display: grid;
     place-items: center;
 
-    background: transparent;
+    transition: background 0.8s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Secciones */
+.stage.about {
+    background-image: url('../../../../assets/SobreMi.jpg');
+}
+
+.stage.studies {
+    background-image: url('../../../../assets/Estudios.jpg');
+}
+
+.stage.experience {
+    background-image: url('../../../../assets/Experiencia.jpg');
+}
+
+.stage.contact {
+    background-image: url('../../../../assets/Contacto.png');
 }
 
 .cluster {
@@ -21,28 +40,11 @@
 }
 
 .cluster.shift-right {
-    transform: translate(-78vmin) scale(.6);
+    transform: translate(-92vmin, -15vmin) scale(.6);
 }
 
 .cluster.shift-left {
-    transform: translate(78vmin) scale(.6);
-}
-
-.box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    width: 25vmin;
-    height: 25vmin;
-
-    border-radius: 40px;
-    background: black;
-
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    z-index: 2;
-    transition: transform 0.4s ease;
+    transform: translate(63vmin, -15vmin) scale(.6);
 }
 
 .item {
@@ -64,18 +66,10 @@
     background: transparent;
     padding: 30px;
 
-    transform: translate(-50%, -50%) scale(.2) translateZ(0);
+    transform: translate(-50%, -50%) scale(.7) translateZ(0);
     transition: transform 0.4s ease;
 
     will-change: transform;
-}
-
-.box:hover {
-    transform: translate(-50%, -50%) scale(2);
-}
-
-.cluster:hover .box {
-    transform: translate(-50%, -50%) scale(2);
 }
 
 .cluster:hover .item {
@@ -166,61 +160,58 @@
     border-radius: 40px;
     background: #222;
     overflow: hidden;
+    justify-items: center;
+
 }
+
+.clock.hidden .trail {
+    opacity: 0;
+}
+
+.clock.hidden .hand {
+    opacity: 0;
+}
+
+
 
 /* ESTELA */
 .trail {
-  position: absolute;
-  inset: -50%;
-  border-radius: 50%;
+    position: absolute;
+    inset: -50%;
+    border-radius: 50%;
 
-  background: conic-gradient(
-    from 0deg,
-    rgba(109,109,109,0.10) 0deg,
-    rgba(109,109,109,0.20) 240deg,
-    rgba(109,109,109,0.30) 260deg,
-    rgba(109,109,109,0.40) 280deg,
-    rgba(109,109,109,0.50) 300deg,
-    rgba(109,109,109,0.60) 320deg,
-    rgba(109,109,109,0.70) 340deg,
-    rgba(109,109,109,0.80) 350deg,
-    rgba(109,109,109,1.00) 360deg
-  );
+    background: conic-gradient(
+            from 0deg,
+            rgb(0, 0, 0) 0deg,
+            rgb(48, 48, 48) 360deg);
 
-  transform: rotate(var(--angle));
+    transform: rotate(var(--angle));
 }
-
-.rotator {
-  position: absolute;
-  inset: 0;
-  transform: rotate(var(--angle));
+.clock-text{
+    position: absolute;
+    color: white;
+    z-index: 4;
+    top: 35%;
+    text-align: center;
+    /* top: 40%;
+    left: 25%; */
+    font-family: var(--font-title);
+    font-size: 30px;
 }
-
-
-/* ROTACIÓN DE LA AGUJA */
 .rotator {
     position: absolute;
     inset: 0;
-    animation: spin 26s linear infinite;
+    transform: rotate(var(--angle));
 }
+
 
 .hand {
     position: absolute;
     width: 2px;
     height: 150%;
-    background: white;
+    background: rgba(109, 109, 109);
 
     left: 50%;
     bottom: 50%;
     transform: translateX(-50%);
 }
-/* 
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-} */

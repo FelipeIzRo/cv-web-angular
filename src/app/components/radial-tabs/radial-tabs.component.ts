@@ -3,6 +3,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LeftPanelComponent } from '../left-panel/left-panel.component';
 import { RightPanelComponent } from "../right-panel/right-panel.component";
 
+type ClockSection = {
+  angle: number;
+  name: string;
+};
 
 @Component({
   selector: 'app-radial-tabs',
@@ -14,11 +18,36 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
   activeTab: 'about' | 'studies' | 'experience' | 'contact' | null = null;
   focusedTab: 'about' | 'studies' | 'experience' | 'contact' | null = null;
 
+  clockText = 'Comencemos';
   angle = 0;
   duration = 26000;
 
   private start = 0;
   private rafId!: number;
+
+  private lastAngle = 0;
+
+  currentSection = 'studies';
+
+
+  sections: ClockSection[] = [
+    {
+      angle: 0,
+      name: 'studies',
+    },
+    {
+      angle: 90,
+      name: 'contact',
+    },
+    {
+      angle: 180,
+      name: 'experience',
+    },
+    {
+      angle: 270,
+      name: 'about',
+    }
+  ];
 
   ngOnInit() {
     this.start = performance.now();
@@ -40,27 +69,36 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
     this.rafId = requestAnimationFrame(this.loop);
   };
 
-  private lastAngle = 0;
+
 
   private checkMilestones() {
-    this.checkCross(0, '0 / 360');
-    this.checkCross(90, '90');
-    this.checkCross(180, '180');
-    this.checkCross(270, '270');
+    for (const section of this.sections) {
+      this.checkCross(section);
+    }
     this.lastAngle = this.angle;
   }
 
-  private checkCross(target: number, label: string) {
-    if (
+  private checkCross(section: ClockSection) {
+    const target = section.angle;
+
+    const crossed =
       (this.lastAngle < target && this.angle >= target) ||
-      (target === 0 && this.lastAngle > this.angle)
-    ) {
-      console.log(label);
+      (target === 0 && this.lastAngle > this.angle);
+
+    if (crossed) {
+      this.activateSection(section);
     }
   }
-  
+
+  private activateSection(section: ClockSection) {
+    this.currentSection = section.name;
+
+    console.log('Section:', section.name);
+  }
+
+
   openTab(tab: 'about' | 'studies' | 'experience' | 'contact') {
-    console.log('clicked: ',tab);
+    console.log('clicked: ', tab);
     this.activeTab = tab;
   }
 
@@ -68,27 +106,31 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
     this.activeTab = null;
   }
 
-  focusTab(tab: 'about' | 'studies' | 'experience' | 'contact' | null){
+  focusTab(tab: 'about' | 'studies' | 'experience' | 'contact' | null) {
     this.focusedTab = tab;
   }
 
-  getImagePath(){
+  getImagePath() {
 
-    switch(this.activeTab){
+    switch (this.activeTab) {
       case 'about':
         // console.log('assets/SobreMi.jpg')
+        this.clockText = 'About';
         return 'assets/SobreMi.jpg'
       case 'experience':
+        this.clockText = 'Experience';
         // console.log('assets/Experiencia.jpg')
         return 'assets/Experiencia.jpg';
       case 'studies':
+        this.clockText = 'Studies';
         // console.log('assets/Estudios.jpg');
         return 'assets/Estudios.jpg';
       case 'contact':
+        this.clockText = 'Contact';
         // console.log('assets/Contacto.png');
         return 'assets/Contacto.png';
       case null:
-        return '';
+        return 'Comencemos';
       default:
         return '';
     }
