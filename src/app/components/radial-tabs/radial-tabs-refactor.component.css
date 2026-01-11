@@ -9,6 +9,7 @@
     transition: background 0.8s ease;
     background-size: cover;
     background-position: center;
+
 }
 
 /* Secciones */
@@ -37,6 +38,7 @@
     z-index: 10;
 
     transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
+
 }
 
 .cluster.shift-right {
@@ -84,6 +86,8 @@
     text-align: center;
     overflow: hidden;
     cursor: pointer;
+    border-style: solid;
+    border-color: rgba(37, 37, 37, 0.938);
 }
 
 .cell::before {
@@ -91,7 +95,7 @@
     position: absolute;
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.65);
     /* 👈 sombra inicial */
     transition: background 0.3s ease;
 
@@ -138,21 +142,25 @@
 .c1 {
     background-image: url('../../../../assets/SobreMi.jpg');
     border-radius: 20px 0;
+    border-width: 5px 1px 1px 5px; 
 }
 
 .c2 {
     background-image: url('../../../../assets/Estudios.jpg');
     border-radius: 0 20px;
+    border-width: 5px 5px 1px 1px; 
 }
 
 .c3 {
     background-image: url('../../../../assets/Experiencia.jpg');
     border-radius: 0 20px;
+    border-width: 1px 1px 5px 5px; 
 }
 
 .c4 {
     background-image: url('../../../../assets/Contacto.png');
     border-radius: 20px 0;
+    border-width: 1px 5px 5px 1px; 
 }
 
 .clock {
