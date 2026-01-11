@@ -101,6 +101,9 @@
 .cell:hover::before {
     background: rgba(0, 0, 0, 0.1);
 }
+.cell.current-section::before {
+    background: rgba(0, 0, 0, 0.1);
+}
 
 .cell-title {
     position: absolute;
