@@ -85,25 +85,29 @@
 .cell {
     position: relative;
     font-family: var(--font-title);
-    font-weight:bold;
+    font-weight: bold;
     background-size: 100% 100%;
     text-align: center;
     overflow: hidden;
     cursor: pointer;
 }
+
 .cell::before {
     content: '';
     position: absolute;
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.45); /* 👈 sombra inicial */
+    background: rgba(0, 0, 0, 0.45);
+    /* 👈 sombra inicial */
     transition: background 0.3s ease;
 
     z-index: 1;
 }
+
 .cell:hover::before {
     background: rgba(0, 0, 0, 0.1);
 }
+
 .cell-title {
     position: absolute;
     z-index: 2;
@@ -153,3 +157,70 @@
     background-image: url('../../../../assets/Contacto.png');
     border-radius: 20px 0;
 }
+
+.clock {
+    z-index: 2;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 40px;
+    background: #222;
+    overflow: hidden;
+}
+
+/* ESTELA */
+.trail {
+  position: absolute;
+  inset: -50%;
+  border-radius: 50%;
+
+  background: conic-gradient(
+    from 0deg,
+    rgba(109,109,109,0.10) 0deg,
+    rgba(109,109,109,0.20) 240deg,
+    rgba(109,109,109,0.30) 260deg,
+    rgba(109,109,109,0.40) 280deg,
+    rgba(109,109,109,0.50) 300deg,
+    rgba(109,109,109,0.60) 320deg,
+    rgba(109,109,109,0.70) 340deg,
+    rgba(109,109,109,0.80) 350deg,
+    rgba(109,109,109,1.00) 360deg
+  );
+
+  transform: rotate(var(--angle));
+}
+
+.rotator {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--angle));
+}
+
+
+/* ROTACIÓN DE LA AGUJA */
+.rotator {
+    position: absolute;
+    inset: 0;
+    animation: spin 26s linear infinite;
+}
+
+.hand {
+    position: absolute;
+    width: 2px;
+    height: 150%;
+    background: white;
+
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+}
+/* 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+} */

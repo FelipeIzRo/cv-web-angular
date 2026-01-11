@@ -4,7 +4,20 @@
   [class.shift-right]="activeTab === 'contact' || activeTab === 'studies'"
   >
 
-    <div class="box"></div>
+<div
+  class="clock"
+  [style.--angle]="angle + 'deg'"
+>
+  <div class="trail"></div>
+
+  <div class="rotator">
+    <div class="hand"></div>
+  </div>
+</div>
+
+
+
+
 
     <div class="item">
       <div class="cell c1" (click)="openTab('about')"><span class="cell-title">ABOUT</span></div>
