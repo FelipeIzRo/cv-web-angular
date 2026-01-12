@@ -22,14 +22,17 @@ div {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 96%;
   transition: all 0.35s ease;
 }
-
+.text:hover{
+  background: rgba(255, 255, 255, 0.08);
+}
 /* Texto nuevo oculto inicialmente */
 .text-secondary {
   transform: translateX(100%);
   opacity: 0;
+  height: 78%;
 }
 
 /* Estado expandido (cuando se hace click) */
@@ -41,4 +44,5 @@ div.expanded .text-primary {
 div.expanded .text-secondary {
   transform: translateX(0);
   opacity: 1;
+  border: 3px solid blue;
 }
