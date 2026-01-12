@@ -1,4 +1,5 @@
-<div *ngFor="let studie of studiesSignal(); let i = index" 
+<div class="study-card"
+     *ngFor="let studie of studiesSignal(); let i = index"
      (click)="toggleExpand(i)"
      [class.expanded]="expandedIndex() === i">
 
