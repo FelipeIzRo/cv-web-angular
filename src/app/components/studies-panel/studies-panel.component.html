@@ -1,4 +1,5 @@
-<div *ngFor="let studie of studiesSignal(); let i = index" 
+<div class="study-card"
+     *ngFor="let studie of studiesSignal(); let i = index"
      (click)="toggleExpand(i)"
      [class.expanded]="expandedIndex() === i">
 
@@ -11,7 +12,7 @@
 
   <div class="text text-secondary">
     <!-- TEXTO NUEVO QUE ENTRA -->
-    <p>Otro texto que aparece al pulsar</p>
+    <p>{{contentStudies()[expandedIndex() ?? 0].content}}</p>
   </div>
 
 </div>

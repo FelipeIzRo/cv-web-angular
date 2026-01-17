@@ -1,6 +1,13 @@
 .detail-panel{
   background-color: var(--color-subpanel-dark);
   margin: 40px 0;
+  border-radius: 8px;
+}
+.detail-header.open{
+  box-shadow: 0 0 0 2px rgb(34, 57, 185),
+     0 0 17px rgba(29, 8, 189, 0.825);
+  background: rgba(47, 47, 145, 0.476);
+  
 }
 .detail-header{
   position: relative;
@@ -12,13 +19,17 @@
   transition: background 0.2s ease;
 }
 .detail-header:hover {
-  background: var(--color-selected-dark);
+  background: rgba(47, 47, 145, 0.476);
+  box-shadow: 0 0 0 2px rgb(34, 57, 185),
+     0 0 34px rgba(29, 8, 189, 0.825);
 }
 
 .detail-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.7s cubic-bezier(0.11, 0.37, 0.17, 0.72);
+  border-radius: 0 0 8px 8px;
+
 }
 
 .detail-content.open {
@@ -28,6 +39,7 @@
 
 .detail-inner {
   padding: 1rem;
+  background-color: rgb(27 28 39);
 }
 .accordion-btn {
   position: absolute;

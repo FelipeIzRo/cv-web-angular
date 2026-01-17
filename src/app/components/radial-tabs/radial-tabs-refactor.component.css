@@ -168,13 +168,22 @@
     position: relative;
     width: 200px;
     height: 200px;
-    border-radius: 40px;
+    border-radius: 100px;
     background: #222;
     overflow: hidden;
     justify-items: center;
-
 }
-
+.inner-clock{
+z-index: 2;
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+    background: #494949;
+    overflow: hidden;
+    justify-items: center;
+    transform: translateY(10px);
+}
 .clock.hidden .trail {
     opacity: 0;
 }
@@ -194,7 +203,8 @@
     background: conic-gradient(
             from 0deg,
             rgb(0, 0, 0) 0deg,
-            rgb(48, 48, 48) 360deg);
+
+            rgb(55, 55, 55) 360deg);
 
     transform: rotate(var(--angle));
 }
@@ -202,12 +212,12 @@
     position: absolute;
     color: white;
     z-index: 4;
-    top: 35%;
+    top: 38%;
     text-align: center;
     /* top: 40%;
     left: 25%; */
     font-family: var(--font-title);
-    font-size: 30px;
+    font-size: 25px;
 }
 .rotator {
     position: absolute;
@@ -220,7 +230,7 @@
     position: absolute;
     width: 2px;
     height: 150%;
-    background: rgba(109, 109, 109);
+    background: rgb(255, 255, 255);
 
     left: 50%;
     bottom: 50%;
