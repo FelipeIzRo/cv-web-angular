@@ -39,9 +39,7 @@
 
 .detail-inner {
   padding: 1rem;
-  background: rgba(47, 47, 145, 0.476);
-  box-shadow: 0 0 0 2px rgb(34, 57, 185),
-     0 0 34px rgba(29, 8, 189, 0.825);
+  background-color: rgb(27 28 39);
 }
 .accordion-btn {
   position: absolute;
