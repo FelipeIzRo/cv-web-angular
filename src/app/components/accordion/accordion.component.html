@@ -1,5 +1,5 @@
 <div class="detail-panel">
-    <div class="detail-header" (click)="togglePanel()">
+    <div [class.open]="openPanel"  class="detail-header" (click)="togglePanel()">
         <h2>{{title}}</h2>
         <h4>{{secondTitle}}</h4>
         <h5>{{thirdTitle}}</h5>

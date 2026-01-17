@@ -73,7 +73,7 @@
 .detail-scroll {
   max-height: 93%;
   overflow-y: auto;
-  padding-right: 0.75rem;
+  padding: 5px;
 }
 
 /* Scroll elegante */
