@@ -26,6 +26,11 @@ body {
 
   --color-card: rgb(229, 227, 222);
   --color-paper-card: rgb(240, 237, 229);
+
+  --panel-width: 70vw;
+  --image-width: 30vw;
+  --radial-shift-x: calc(50vw - (var(--image-width) / 2));
+  --radial-scale: 0.6;
 }
 
 p {
