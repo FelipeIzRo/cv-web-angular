@@ -102,7 +102,23 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
 
 
   openTab(tab: 'about' | 'studies' | 'experience' | 'contact') {
-    this.clockText = tab.charAt(0).toUpperCase().concat(tab.substring(1));
+    //! Cambio rapido para subir luego hacer traducciones
+    switch (tab){
+      case 'about':
+        this.clockText = 'Sobre Mi';
+      break;
+      case 'studies':
+        this.clockText = 'Estudios';
+      break;
+      case 'experience':
+        this.clockText = 'Experiencia';
+      break;
+      case 'contact':
+        this.clockText = 'Contacto';
+      break;
+    }
+
+    // this.clockText = tab.charAt(0).toUpperCase().concat(tab.substring(1));
     this.activeTab = tab;
     this.stopClock();
   }
