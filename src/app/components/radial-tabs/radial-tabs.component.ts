@@ -55,8 +55,8 @@ export class RadialTabsComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    // this.start = performance.now();
-    // this.loop();
+    this.start = performance.now();
+    this.loop();
   }
 
   ngOnDestroy() {
