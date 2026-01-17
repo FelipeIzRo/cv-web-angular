@@ -37,8 +37,7 @@
     --shift-x: 0px;
     --shift-y: 0px;
     --cluster-scale: 1;
-    transform: translate(calc(-50% + var(--shift-x)), calc(-50% + var(--shift-y)))
-        scale(var(--cluster-scale));
+    transform: translate(calc(-50% + var(--shift-x)), calc(-50% + var(--shift-y))) scale(var(--cluster-scale));
     z-index: 10;
 
     transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
@@ -76,7 +75,7 @@
     background: transparent;
     padding: 30px;
 
-    transform: translate(-50%, -50%) scale(.7) translateZ(0);
+    transform: translate(-50%, -50%) scale(.7);
     transition: transform 0.4s ease;
 
     will-change: transform;
@@ -113,21 +112,30 @@
 .cell:hover::before {
     background: rgba(0, 0, 0, 0.1);
 }
+
 .cell.current-section::before {
     background: rgba(0, 0, 0, 0.1);
 }
 
 .cell-title {
+    
     position: absolute;
     z-index: 2;
 
     left: 0;
     right: 0;
 
-    -webkit-text-stroke: 1px black;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+         2px  2px 4px #000;
+
     color: white;
-    font-size: 6.3vmin;
+    font-size: clamp(28px, 6vmin, 72px);
+    line-height: 1;
+
     pointer-events: none;
 }
 
@@ -150,29 +158,31 @@
 .c1 {
     background-image: url('../../../../assets/SobreMi.jpg');
     border-radius: 20px 0;
-    border-width: 5px 1px 1px 5px; 
+    border-width: 5px 1px 1px 5px;
 }
 
 .c2 {
     background-image: url('../../../../assets/Estudios.jpg');
     border-radius: 0 20px;
-    border-width: 5px 5px 1px 1px; 
+    border-width: 5px 5px 1px 1px;
 }
 
 .c3 {
     background-image: url('../../../../assets/Experiencia.jpg');
     border-radius: 0 20px;
-    border-width: 1px 1px 5px 5px; 
+    border-width: 1px 1px 5px 5px;
 }
 
 .c4 {
     background-image: url('../../../../assets/Contacto.png');
     border-radius: 20px 0;
-    border-width: 1px 5px 5px 1px; 
+    border-width: 1px 5px 5px 1px;
 }
 
 .clock {
     z-index: 2;
+    display: grid;
+    place-items: center;
     position: relative;
     width: 200px;
     height: 200px;
@@ -181,8 +191,9 @@
     overflow: hidden;
     justify-items: center;
 }
-.inner-clock{
-z-index: 2;
+
+.inner-clock {
+    z-index: 2;
     position: relative;
     width: 180px;
     height: 180px;
@@ -190,8 +201,8 @@ z-index: 2;
     background: #494949;
     overflow: hidden;
     justify-items: center;
-    transform: translateY(10px);
 }
+
 .clock.hidden .trail {
     opacity: 0;
 }
@@ -208,15 +219,15 @@ z-index: 2;
     inset: -50%;
     border-radius: 50%;
 
-    background: conic-gradient(
-            from 0deg,
+    background: conic-gradient(from 0deg,
             rgb(0, 0, 0) 0deg,
 
             rgb(55, 55, 55) 360deg);
 
     transform: rotate(var(--angle));
 }
-.clock-text{
+
+.clock-text {
     position: absolute;
     color: white;
     z-index: 4;
@@ -227,6 +238,7 @@ z-index: 2;
     font-family: var(--font-title);
     font-size: 25px;
 }
+
 .rotator {
     position: absolute;
     inset: 0;
