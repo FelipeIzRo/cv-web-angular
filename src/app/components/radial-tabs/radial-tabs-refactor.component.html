@@ -3,6 +3,7 @@
     [class.shift-right]="activeTab === 'contact' || activeTab === 'studies'">
 
     <div class="clock" [class.hidden]="activeTab !== null" [style.--angle]="angle + 'deg'">
+      <div class="inner-clock"></div>
       <div class="clock-text">{{clockText}}</div>
       <div class="trail"></div>
       <div class="rotator">
