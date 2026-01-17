@@ -34,7 +34,11 @@
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    --shift-x: 0px;
+    --shift-y: 0px;
+    --cluster-scale: 1;
+    transform: translate(calc(-50% + var(--shift-x)), calc(-50% + var(--shift-y)))
+        scale(var(--cluster-scale));
     z-index: 10;
 
     transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
@@ -42,11 +46,15 @@
 }
 
 .cluster.shift-right {
-    transform: translate(-92vmin, -15vmin) scale(.6);
+    --shift-x: calc(var(--radial-shift-x) * -1);
+    --shift-y: 0px;
+    --cluster-scale: var(--radial-scale);
 }
 
 .cluster.shift-left {
-    transform: translate(63vmin, -15vmin) scale(.6);
+    --shift-x: var(--radial-shift-x);
+    --shift-y: 0px;
+    --cluster-scale: var(--radial-scale);
 }
 
 .item {
