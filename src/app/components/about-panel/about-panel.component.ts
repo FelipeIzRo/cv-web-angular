@@ -42,14 +42,14 @@ export class AboutPanelComponent {
   }
   downloadCV() {
     const link = document.createElement('a');
-    link.href = 'assets/NEW_CurriculumAzul.pdf';
+    link.href = 'assets/Felipe izquierdo CV 19-01-26.pdf';
     link.download = 'Felipe_Izquierdo_CV.pdf';
     link.click();
   }
   downloadCard() {
     const link = document.createElement('a');
     console.warn("Estas descargardo el CV en vez de la carta")
-    link.href = 'assets/NEW_CurriculumAzul.pdf';
+    link.href = 'assets/Felipe izquierdo CV 19-01-26.pdf';
     link.download = 'Felipe_Izquierdo_CV.pdf';
     link.click();
   }

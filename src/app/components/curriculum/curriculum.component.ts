@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class CurriculumComponent {
 
   openPdf() {
-    window.open('assets/NEW_CurriculumAzul.pdf', '_blank');
+    window.open('assets/Felipe izquierdo CV 19-01-26.pdf', '_blank');
   }
 
 }
