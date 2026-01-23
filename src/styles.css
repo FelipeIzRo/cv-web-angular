@@ -17,7 +17,7 @@ body {
   --font-title: 'IBM Plex Serif', serif;
   --font-ui-accent: 'Fraunces', serif;
 
-  
+
   --color-panel-dark: rgb(15, 15, 20);
   --color-subpanel-dark: rgb(34, 34, 34);
   --color-subpanel-child-dark: rgb(59, 59, 59);
@@ -31,6 +31,13 @@ body {
   --image-width: 30vw;
   --radial-shift-x: calc(50vw - (var(--image-width) / 2));
   --radial-scale: 0.6;
+
+  /*Main Tab*/
+  --cluster-scale: 1;
+  --main-tab-size: 12rem;
+  --clock-text-size: 25px;
+  --shift-x: 0px;
+  --shift-y: 0px;
 }
 
 p {
@@ -42,4 +49,29 @@ h4,
 h5 {
   margin: 6px 0;
   font-family: var(--font-title);
+}
+
+/* Base mobile tweaks: adjust layout variables and typography for small screens */
+@media (max-width: 768px) {
+  :root {
+    --panel-width: 100vw;
+    --image-width: 0vw;
+    --radial-shift-x: calc(100vw);
+    --radial-scale: 1;
+    --main-tab-size: 7.5rem;
+
+    /*Main Tab*/
+    --clock-text-size: 18px;
+
+
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .cluster:hover .item {
+    transform: translate(-50%, -50%) scale(.7) !important;
+  }
+
 }

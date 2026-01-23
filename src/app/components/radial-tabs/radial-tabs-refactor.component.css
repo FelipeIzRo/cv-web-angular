@@ -33,14 +33,12 @@
     position: fixed;
     top: 50%;
     left: 50%;
-
-    --shift-x: 0px;
-    --shift-y: 0px;
-    --cluster-scale: 1;
+    
     transform: translate(calc(-50% + var(--shift-x)), calc(-50% + var(--shift-y))) scale(var(--cluster-scale));
     z-index: 10;
 
     transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
+    
 
 }
 
@@ -184,8 +182,8 @@
     display: grid;
     place-items: center;
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: var(--main-tab-size);
+    height: var(--main-tab-size);
     border-radius: 100px;
     background: #222;
     overflow: hidden;
@@ -194,14 +192,16 @@
 
 .inner-clock {
     z-index: 2;
-    position: relative;
-    width: 180px;
-    height: 180px;
+    width: calc(var(--main-tab-size) - 1rem);
+    height: calc(var(--main-tab-size) - 1rem);
     border-radius: 100px;
     background: #494949;
     overflow: hidden;
-    justify-items: center;
+
+    display: grid;
+    place-items: center; /* 👈 horizontal + vertical */
 }
+
 
 .clock.hidden .trail {
     opacity: 0;
@@ -228,15 +228,12 @@
 }
 
 .clock-text {
-    position: absolute;
+    padding-bottom: .6rem;
     color: white;
     z-index: 4;
-    top: 38%;
     text-align: center;
-    /* top: 40%;
-    left: 25%; */
     font-family: var(--font-title);
-    font-size: 25px;
+    font-size: var(--clock-text-size);
 }
 
 .rotator {
